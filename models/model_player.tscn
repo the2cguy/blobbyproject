@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://d25or1vcbdalh"]
+
+[ext_resource type="Script" path="res://scripts/model_player.gd" id="1_5mk0y"]
+[ext_resource type="Texture2D" uid="uid://qw52xwm42ibv" path="res://sprites/blobby_pixel_0001.png" id="1_hpbjc"]
+[ext_resource type="Texture2D" uid="uid://c3ccqv7e7qh14" path="res://sprites/blobby_pixel_0002.png" id="2_btuym"]
+[ext_resource type="PackedScene" uid="uid://cew0rw5er5lwe" path="res://models/weapon.tscn" id="4_41w43"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pud7h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hpbjc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hpbjc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_btuym")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tugk"]
+size = Vector2(26, 15)
+
+[node name="model_player" type="CharacterBody2D"]
+script = ExtResource("1_5mk0y")
+speed = 200.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_pud7h")
+animation = &"walk"
+frame = 1
+frame_progress = 0.00587107
+flip_h = true
+
+[node name="weapon" parent="AnimatedSprite2D" instance=ExtResource("4_41w43")]
+position = Vector2(10, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_6tugk")

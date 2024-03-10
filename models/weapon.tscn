@@ -1,0 +1,118 @@
+[gd_scene load_steps=15 format=3 uid="uid://cew0rw5er5lwe"]
+
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="1_kvi4o"]
+[ext_resource type="Texture2D" uid="uid://cm8uowf5x1wjp" path="res://sprites/weapons/blitz34/blitz34-v4.png" id="2_ckqo6"]
+[ext_resource type="Texture2D" uid="uid://dwql531q3s6gu" path="res://sprites/weapons/zk2_gen3/zk2_gen3-v2.png" id="3_5hw1i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjg1n"]
+atlas = ExtResource("2_ckqo6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq10h"]
+atlas = ExtResource("2_ckqo6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwmpv"]
+atlas = ExtResource("2_ckqo6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vds8"]
+atlas = ExtResource("2_ckqo6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en1ik"]
+atlas = ExtResource("3_5hw1i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktmtw"]
+atlas = ExtResource("3_5hw1i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h13ec"]
+atlas = ExtResource("3_5hw1i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijbbb"]
+atlas = ExtResource("3_5hw1i")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta76j"]
+atlas = ExtResource("3_5hw1i")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfip6"]
+atlas = ExtResource("3_5hw1i")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3po5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjg1n")
+}],
+"loop": true,
+"name": &"blitz34_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq10h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwmpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vds8")
+}],
+"loop": true,
+"name": &"blitz34_shooting",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en1ik")
+}],
+"loop": true,
+"name": &"zk2_gen3_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktmtw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h13ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijbbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta76j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfip6")
+}],
+"loop": false,
+"name": &"zk2_gen3_shooting",
+"speed": 15.0
+}]
+
+[node name="weapon" type="Node2D"]
+script = ExtResource("1_kvi4o")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_e3po5")
+animation = &"zk2_gen3_shooting"
+frame = 4
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(13, 0)
+
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true

@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://ch50nop2obxfl"]
+
+[ext_resource type="PackedScene" uid="uid://d25or1vcbdalh" path="res://models/model_player.tscn" id="1_h5upq"]
+[ext_resource type="Texture2D" uid="uid://c3u4gdsjjs17t" path="res://tileset/background_snow.png" id="3_avhwu"]
+[ext_resource type="Texture2D" uid="uid://ckyhcg3gpl23q" path="res://tileset/dirt-v2.png" id="3_i7a03"]
+[ext_resource type="PackedScene" uid="uid://7vc71hj8mcjb" path="res://models/misc/procedural_map.tscn" id="4_iohd6"]
+[ext_resource type="Texture2D" uid="uid://2wyn2b68y11n" path="res://tileset/pine_trees.png" id="4_lvd8u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evxm6"]
+texture = ExtResource("3_i7a03")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2cv5v"]
+texture = ExtResource("3_avhwu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oecxw"]
+texture = ExtResource("4_lvd8u")
+texture_region_size = Vector2i(32, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 32)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 32)
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_laogb"]
+tile_size = Vector2i(32, 32)
+sources/3 = SubResource("TileSetAtlasSource_evxm6")
+sources/4 = SubResource("TileSetAtlasSource_2cv5v")
+sources/6 = SubResource("TileSetAtlasSource_oecxw")
+
+[node name="map_chapter1_test" type="Node2D"]
+
+[node name="model_player" parent="." instance=ExtResource("1_h5upq")]
+z_index = 10
+
+[node name="Camera2D" type="Camera2D" parent="model_player"]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="map" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_laogb")
+format = 2
+layer_0/name = "Dirt"
+layer_1/name = "Background"
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Trees"
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array()
+
+[node name="procedural_map" parent="." instance=ExtResource("4_iohd6")]
