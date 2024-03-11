@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=3 uid="uid://cee7omdbwiski"]
+
+[ext_resource type="Texture2D" uid="uid://tn7oskoeag74" path="res://ui/imgs/crosshair.png" id="1_463no"]
+[ext_resource type="Script" path="res://scripts/ui/crosshair.gd" id="2_jcp26"]
+[ext_resource type="Texture2D" uid="uid://clr38j4encd72" path="res://ui/gun_icon-v2.png" id="3_njc03"]
+[ext_resource type="FontFile" uid="uid://bhlcg42s8qp1c" path="res://ui/fonts/screaming_neon.ttf" id="4_5q2pl"]
+[ext_resource type="Script" path="res://scripts/ui/ammo_text.gd" id="5_jtwbc"]
+[ext_resource type="Script" path="res://scripts/ui/reload_progress.gd" id="6_ik8hh"]
+[ext_resource type="Texture2D" uid="uid://pii3d3a64xoa" path="res://ui/reloadicon.png" id="7_6y3vc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ajcou"]
+font = ExtResource("4_5q2pl")
+font_size = 473
+shadow_size = 54
+shadow_color = Color(0, 0, 0, 0.329412)
+shadow_offset = Vector2(0, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbljf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgwk1"]
+bg_color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="main_hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="crosshair" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("1_463no")
+script = ExtResource("2_jcp26")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = -86.0
+offset_right = 247.0
+offset_bottom = -29.0
+grow_vertical = 0
+color = Color(0, 0, 0, 0.690196)
+
+[node name="gun_icon" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = -79.0
+offset_right = 95.0
+offset_bottom = -39.0
+grow_vertical = 0
+texture = ExtResource("3_njc03")
+
+[node name="ammo_text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 109.0
+offset_top = -75.9999
+offset_right = 570.0
+offset_bottom = 444.0
+grow_vertical = 0
+scale = Vector2(0.0919692, 0.0919692)
+text = "16"
+label_settings = SubResource("LabelSettings_ajcou")
+script = ExtResource("5_jtwbc")
+
+[node name="reload_control" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -77.0
+offset_right = -69.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="reload_progress" type="ProgressBar" parent="reload_control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 84.0
+offset_top = -22.0
+offset_right = 174.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_kbljf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jgwk1")
+max_value = 2.0
+step = 0.1
+value = 0.2
+show_percentage = false
+script = ExtResource("6_ik8hh")
+
+[node name="TextureRect" type="TextureRect" parent="reload_control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 59.0
+offset_top = 6.0
+offset_right = 99.0
+offset_bottom = 46.0
+texture = ExtResource("7_6y3vc")

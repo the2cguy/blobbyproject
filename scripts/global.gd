@@ -20,3 +20,6 @@ var gunROF = {
 	"blitz34":20,
 	"zk2_gen3":4
 }
+var currentWeapon = "blitz34"
+var weapon:Node2D
+var reload_progress:ProgressBar
