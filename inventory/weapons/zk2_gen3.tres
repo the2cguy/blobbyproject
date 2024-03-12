@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="weaponItem" load_steps=2 format=3 uid="uid://chjfgbx4n3nau"]
+
+[ext_resource type="Script" path="res://scripts/weaponItem.gd" id="1_gk8q5"]
+
+[resource]
+script = ExtResource("1_gk8q5")
+name = "zk2_gen3"
+capacity = 16
+reload_time = 1.8
+ammo = 9
+ROF = 4
+weapon_type = "SEMIAUTO"
+knockback = 0.0
+damage = 0.0

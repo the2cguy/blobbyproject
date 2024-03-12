@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="weaponItem" load_steps=2 format=3 uid="uid://rv68dodfrn3e"]
+
+[ext_resource type="Script" path="res://scripts/weaponItem.gd" id="1_qmqqx"]
+
+[resource]
+script = ExtResource("1_qmqqx")
+name = "blitz34"
+capacity = 30
+reload_time = 2.4
+ammo = 20
+ROF = 20
+weapon_type = "AUTO"
+knockback = 0.0
+damage = 0.0

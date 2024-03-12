@@ -79,6 +79,9 @@ sources/6 = SubResource("TileSetAtlasSource_oecxw")
 [node name="model_player" parent="." instance=ExtResource("1_h5upq")]
 z_index = 10
 
+[node name="inventory_component" parent="model_player" index="2" node_paths=PackedStringArray("items_ui")]
+items_ui = NodePath("../../CanvasLayer/main_hud/items_ui")
+
 [node name="Camera2D" type="Camera2D" parent="model_player"]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
@@ -105,3 +108,6 @@ tilemap = NodePath("../map")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="main_hud" parent="CanvasLayer" instance=ExtResource("6_dwi81")]
+
+[editable path="model_player"]
+[editable path="CanvasLayer/main_hud"]

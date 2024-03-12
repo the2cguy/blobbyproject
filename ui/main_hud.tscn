@@ -1,24 +1,117 @@
-[gd_scene load_steps=11 format=3 uid="uid://cee7omdbwiski"]
+[gd_scene load_steps=18 format=3 uid="uid://cee7omdbwiski"]
 
-[ext_resource type="Texture2D" uid="uid://tn7oskoeag74" path="res://ui/imgs/crosshair.png" id="1_463no"]
+[ext_resource type="Texture2D" uid="uid://bplgfffgs078u" path="res://ui/imgs/crosshair_default.png" id="1_kfkct"]
 [ext_resource type="Script" path="res://scripts/ui/crosshair.gd" id="2_jcp26"]
-[ext_resource type="Texture2D" uid="uid://clr38j4encd72" path="res://ui/gun_icon-v2.png" id="3_njc03"]
-[ext_resource type="FontFile" uid="uid://bhlcg42s8qp1c" path="res://ui/fonts/screaming_neon.ttf" id="4_5q2pl"]
+[ext_resource type="Texture2D" uid="uid://bl685hg3rhnob" path="res://ui/imgs/gun_ui_info.png" id="3_4cxhb"]
+[ext_resource type="FontFile" uid="uid://do317wk6vp23l" path="res://ui/fonts/superstar_memesbruh03.ttf" id="4_2y6bi"]
 [ext_resource type="Script" path="res://scripts/ui/ammo_text.gd" id="5_jtwbc"]
 [ext_resource type="Script" path="res://scripts/ui/reload_progress.gd" id="6_ik8hh"]
-[ext_resource type="Texture2D" uid="uid://pii3d3a64xoa" path="res://ui/reloadicon.png" id="7_6y3vc"]
+[ext_resource type="Texture2D" uid="uid://pii3d3a64xoa" path="res://ui/imgs/reloadicon.png" id="7_6y3vc"]
+[ext_resource type="Texture2D" uid="uid://b00mjr26nt6sf" path="res://ui/imgs/health_icon_ui.png" id="8_ivipe"]
+[ext_resource type="Script" path="res://scripts/ui/health_text.gd" id="9_6n2la"]
+
+[sub_resource type="Animation" id="Animation_myw14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_8tsno"]
+resource_name = "crosshair_rotation"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_msias"]
+resource_name = "crosshair_shoot"
+length = 0.2
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.75, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.75, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fs8kp"]
+_data = {
+"RESET": SubResource("Animation_myw14"),
+"crosshair_rotation": SubResource("Animation_8tsno"),
+"crosshair_shoot": SubResource("Animation_msias")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_ajcou"]
-font = ExtResource("4_5q2pl")
-font_size = 473
-shadow_size = 54
-shadow_color = Color(0, 0, 0, 0.329412)
-shadow_offset = Vector2(0, 20)
+font = ExtResource("4_2y6bi")
+font_size = 546
+font_color = Color(0, 0.596078, 0.858824, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbljf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgwk1"]
 bg_color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g1l1t"]
+font = ExtResource("4_2y6bi")
+font_size = 47
+font_color = Color(0.145098, 0.145098, 0.27451, 1)
 
 [node name="main_hud" type="Control"]
 layout_mode = 3
@@ -34,20 +127,13 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 pivot_offset = Vector2(20, 20)
-texture = ExtResource("1_463no")
+texture = ExtResource("1_kfkct")
 script = ExtResource("2_jcp26")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 41.0
-offset_top = -86.0
-offset_right = 247.0
-offset_bottom = -29.0
-grow_vertical = 0
-color = Color(0, 0, 0, 0.690196)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="crosshair"]
+libraries = {
+"": SubResource("AnimationLibrary_fs8kp")
+}
 
 [node name="gun_icon" type="TextureRect" parent="."]
 texture_filter = 1
@@ -55,22 +141,22 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 55.0
-offset_top = -79.0
-offset_right = 95.0
-offset_bottom = -39.0
+offset_left = 30.0
+offset_top = -99.0
+offset_right = 182.0
+offset_bottom = -23.0
 grow_vertical = 0
-texture = ExtResource("3_njc03")
+texture = ExtResource("3_4cxhb")
 
 [node name="ammo_text" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 109.0
-offset_top = -75.9999
-offset_right = 570.0
-offset_bottom = 444.0
+offset_left = 116.0
+offset_top = -85.0
+offset_right = 577.0
+offset_bottom = 462.0
 grow_vertical = 0
 scale = Vector2(0.0919692, 0.0919692)
 text = "16"
@@ -91,6 +177,14 @@ offset_right = -69.0
 offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="reload_control"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 5.0
+offset_right = 218.0
+offset_bottom = 48.0
+color = Color(0, 0, 0, 0.258824)
 
 [node name="reload_progress" type="ProgressBar" parent="reload_control"]
 layout_mode = 1
@@ -121,3 +215,38 @@ offset_top = 6.0
 offset_right = 99.0
 offset_bottom = 46.0
 texture = ExtResource("7_6y3vc")
+
+[node name="items_ui" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -218.0
+offset_top = -90.0
+offset_right = -18.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="health_icon" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 29.0
+offset_top = 469.0
+offset_right = 181.0
+offset_bottom = 545.0
+texture = ExtResource("8_ivipe")
+
+[node name="health_text" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 104.0
+offset_top = 484.0
+offset_right = 203.0
+offset_bottom = 534.0
+text = "5.0"
+label_settings = SubResource("LabelSettings_g1l1t")
+script = ExtResource("9_6n2la")

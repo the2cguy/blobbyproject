@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pii3d3a64xoa"
-path="res://.godot/imported/reloadicon.png-04ca62775ef97627e24792e8a2f7e86e.ctex"
+uid="uid://duvpp6fj6btl6"
+path="res://.godot/imported/semiauto.png-eebc962c43179d8ed44eaea579cd26c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/reloadicon.png"
-dest_files=["res://.godot/imported/reloadicon.png-04ca62775ef97627e24792e8a2f7e86e.ctex"]
+source_file="res://inventory/icons/semiauto.png"
+dest_files=["res://.godot/imported/semiauto.png-eebc962c43179d8ed44eaea579cd26c9.ctex"]
 
 [params]
 

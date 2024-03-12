@@ -12,6 +12,7 @@ func _process(delta):
 	if get_global_mouse_position().x < global_position.x:
 		$AnimatedSprite2D.scale.x = -1
 	else:
-		$AnimatedSprite2D.scale.x = 1
+		$AnimatedSprite2D.scale.x = 1	
 	move_and_slide()
+	Global.health = $health_component.health
 	

@@ -1,15 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://d25or1vcbdalh"]
+[gd_scene load_steps=13 format=3 uid="uid://d25or1vcbdalh"]
 
 [ext_resource type="Script" path="res://scripts/model_player.gd" id="1_5mk0y"]
-[ext_resource type="Texture2D" uid="uid://qw52xwm42ibv" path="res://sprites/blobby_pixel_0001.png" id="1_hpbjc"]
-[ext_resource type="Texture2D" uid="uid://c3ccqv7e7qh14" path="res://sprites/blobby_pixel_0002.png" id="2_btuym"]
+[ext_resource type="Texture2D" uid="uid://b8qn2j4mqh81e" path="res://sprites/blobby-v3.png" id="2_m1h4o"]
 [ext_resource type="PackedScene" uid="uid://cew0rw5er5lwe" path="res://models/weapon.tscn" id="4_41w43"]
+[ext_resource type="Script" path="res://scripts/inventory_component.gd" id="4_ryw4s"]
+[ext_resource type="Resource" uid="uid://rv68dodfrn3e" path="res://inventory/weapons/blitz34.tres" id="5_ojbls"]
+[ext_resource type="Resource" uid="uid://chjfgbx4n3nau" path="res://inventory/weapons/zk2_gen3.tres" id="6_x1dom"]
+[ext_resource type="PackedScene" uid="uid://dmm6ogo1u2fpq" path="res://models/components/health_component.tscn" id="7_acm42"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77mgw"]
+atlas = ExtResource("2_m1h4o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cebx2"]
+atlas = ExtResource("2_m1h4o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnny8"]
+atlas = ExtResource("2_m1h4o")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pud7h"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_hpbjc")
+"texture": SubResource("AtlasTexture_77mgw")
 }],
 "loop": true,
 "name": &"idle",
@@ -17,10 +32,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_hpbjc")
+"texture": SubResource("AtlasTexture_cebx2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_btuym")
+"texture": SubResource("AtlasTexture_gnny8")
 }],
 "loop": true,
 "name": &"walk",
@@ -37,9 +52,7 @@ speed = 200.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_pud7h")
-animation = &"walk"
-frame = 1
-frame_progress = 0.00587107
+animation = &"idle"
 flip_h = true
 
 [node name="weapon" parent="AnimatedSprite2D" instance=ExtResource("4_41w43")]
@@ -48,3 +61,9 @@ position = Vector2(10, 8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_6tugk")
+
+[node name="inventory_component" type="Node2D" parent="."]
+script = ExtResource("4_ryw4s")
+weapons = Array[Resource("res://scripts/weaponItem.gd")]([ExtResource("5_ojbls"), ExtResource("6_x1dom")])
+
+[node name="health_component" parent="." instance=ExtResource("7_acm42")]

@@ -16,3 +16,7 @@ texture = ExtResource("2_r45oh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ahhk6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(4.76837e-07, 0)
+scale = Vector2(0.2, 0.2)

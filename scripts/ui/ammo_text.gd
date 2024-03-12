@@ -2,4 +2,4 @@ extends Label
 
 
 func _process(delta: float) -> void:
-	text = str(Global.gunAmmo[Global.currentWeapon])
+	text = str(Global.guns[Global.current_weapon_id].ammo)
