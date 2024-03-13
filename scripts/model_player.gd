@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
 @export var speed = 400.0
-
+@export var sprint_speed:float
 func _process(delta):
 	var dir = Input.get_vector("left", "right", "up", "down")
-	velocity = lerp(velocity, dir * speed, 0.02)
+	if Input.is_action_pressed("sprint"):
+		velocity = lerp(velocity, dir * sprint_speed, 0.02)
+	else:
+		velocity = lerp(velocity, dir * speed, 0.02)
 	if dir:
 		$AnimatedSprite2D.play("walk")
 	else:

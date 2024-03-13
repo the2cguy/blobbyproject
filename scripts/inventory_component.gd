@@ -21,3 +21,7 @@ func appendToInventoryUI(icon:Texture2D, gunid):
 	item_btn.change_icon(icon)
 	item_btn.gun_id = gunid
 	items_ui.add_child(item_btn)
+func change_weapon():
+	for i in items_ui.get_children():
+		i.modulate = Color("FFFFFF")
+	items_ui.get_child(Global.current_weapon_id).modulate = Color("#9d9d9d")

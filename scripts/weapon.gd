@@ -12,6 +12,7 @@ func switchGun():
 		else:
 			Global.current_weapon_id = gunid
 		$Sprite2D.play(Global.guns[Global.current_weapon_id].name+"_idle")
+		get_parent().get_parent().get_node("inventory_component").change_weapon()
 func _ready():
 	$Timer.timeout.connect(enableFire)
 	$ReloadTimer.timeout.connect(reloadGun)
