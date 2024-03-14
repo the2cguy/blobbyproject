@@ -7,3 +7,8 @@ Blobby finds his way out to stop AARI forever.
 
 ## Project Informations for collabs.
 Notion link: https://mixolydian-pocket-35b.notion.site/Blobby-Game-Project-c6438f1757ff471b8918e8cf545b7d5c?pvs=4
+
+## Controls
+- Press **WASD** to move
+- Press **R** to reload
+- Press **F** to change weapon
