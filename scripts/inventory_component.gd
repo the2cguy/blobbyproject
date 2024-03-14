@@ -16,6 +16,7 @@ func loadGuns():
 		k += 1
 func _ready() -> void:
 	loadGuns()
+	change_weapon()
 func appendToInventoryUI(icon:Texture2D, gunid):
 	var item_btn = itembtn.instantiate()
 	item_btn.change_icon(icon)

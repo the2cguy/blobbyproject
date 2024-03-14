@@ -1,0 +1,173 @@
+[gd_scene load_steps=15 format=3 uid="uid://ehw7r0okjnko"]
+
+[ext_resource type="Script" path="res://scripts/enemy_ai/wolf.gd" id="1_ga0xj"]
+[ext_resource type="Texture2D" uid="uid://cbobqb6x4lohd" path="res://sprites/pixilart-drawing.png" id="2_tv55k"]
+[ext_resource type="PackedScene" uid="uid://dmm6ogo1u2fpq" path="res://models/components/health_component.tscn" id="3_65see"]
+
+[sub_resource type="Gradient" id="Gradient_g4atl"]
+offsets = PackedFloat32Array(0.382979, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gww4a"]
+gradient = SubResource("Gradient_g4atl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cvd8o"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+spread = 47.911
+flatness = 0.345
+initial_velocity_min = 100.0
+initial_velocity_max = 324.25
+radial_velocity_min = -188.68
+radial_velocity_max = 94.34
+gravity = Vector3(0, 300, 0)
+radial_accel_min = -54.72
+radial_accel_max = 50.94
+scale_max = 2.34
+color = Color(0.545098, 0.886275, 1, 1)
+color_ramp = SubResource("GradientTexture1D_gww4a")
+anim_speed_max = 4.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eunyc"]
+size = Vector2(30, 21)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wb7kj"]
+radius = 76.0592
+
+[sub_resource type="Animation" id="Animation_dxxqd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l21mv"]
+resource_name = "hurt"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(5.389, 0.5, 0.5, 1), Color(1, 1, 1, 1), Color(5.389, 0.5, 0.5, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lvke5"]
+_data = {
+"RESET": SubResource("Animation_dxxqd"),
+"hurt": SubResource("Animation_l21mv")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tob82"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ry76s"]
+bg_color = Color(0.811765, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_5arfa"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_tob82")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ry76s")
+
+[node name="wolf" type="CharacterBody2D" node_paths=PackedStringArray("health_bar")]
+script = ExtResource("1_ga0xj")
+speed = 200.0
+health_bar = NodePath("health_bar")
+knockback_multiplier = 4.205
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-7, 0)
+texture = ExtResource("2_tv55k")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+rotation = 0.072114
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_cvd8o")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eunyc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wb7kj")
+
+[node name="health_component" parent="." instance=ExtResource("3_65see")]
+
+[node name="attack_timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lvke5")
+}
+speed_scale = 2.0
+
+[node name="roam_timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="health_bar" type="ProgressBar" parent="."]
+offset_left = -14.0
+offset_top = -18.0
+offset_right = 14.0
+offset_bottom = -14.0
+theme = SubResource("Theme_5arfa")
+max_value = 5.0
+step = 0.5
+value = 5.0
+show_percentage = false
+
+[connection signal="damageIncoming" from="health_component" to="." method="_on_health_component_damage_incoming"]
+[connection signal="timeout" from="roam_timer" to="." method="_on_roam_timer_timeout"]

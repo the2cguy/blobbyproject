@@ -10,3 +10,12 @@ func _ready():
 func _process(delta):
 	position += (Vector2.RIGHT * speed).rotated(rotation) * delta
 	
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name != "model_player" and body.has_node("health_component"):
+		body.get_node("health_component").damage(1.0)
+		if body.has_method("knockbackFunc"): 
+			body.knockbackFunc((Vector2.RIGHT * speed).rotated(rotation))
+		queue_free()
+		

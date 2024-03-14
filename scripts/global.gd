@@ -7,3 +7,4 @@ var reload_progress:ProgressBar
 var items_ui:HBoxContainer
 var itembtn = preload("res://ui/items_btn.tscn")
 var health:float = 0
+var player:CharacterBody2D

@@ -17,6 +17,7 @@ func _ready():
 	$Timer.timeout.connect(enableFire)
 	$ReloadTimer.timeout.connect(reloadGun)
 	Global.weapon = self
+	$Sprite2D.play("blitz34_idle")
 func enableFire():
 	if Global.guns[Global.current_weapon_id].ammo > 0:
 		allowFire = true
