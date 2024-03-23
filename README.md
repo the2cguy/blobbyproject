@@ -3,7 +3,7 @@
 
 
 Blobby tells a story of an anthropomorphic animals being experimented and then killed by a rogue company called AARI, Blobby is an anthropomorphic whale whose his father was killed by the AARI.
-Blobby finds his way out to stop AARI forever.
+Blobby finds his way out to stop AARI forever. <--- Weird story, I know. Improve it later.
 
 ## Project Informations for collabs.
 Notion link: https://mixolydian-pocket-35b.notion.site/Blobby-Game-Project-c6438f1757ff471b8918e8cf545b7d5c?pvs=4
