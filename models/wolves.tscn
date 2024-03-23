@@ -146,6 +146,7 @@ shape = SubResource("CircleShape2D_wb7kj")
 
 [node name="attack_timer" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {

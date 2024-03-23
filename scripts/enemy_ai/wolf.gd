@@ -14,6 +14,8 @@ func damageplayer():
 	for i in $Area2D.get_overlapping_bodies():
 		if i.name == "model_player":
 			i.get_node("health_component").damage(0.5)
+	$attack_timer.wait_time = RandomNumberGenerator.new().randf_range(0.4, 1.2)
+	$attack_timer.start()
 func _ready() -> void:
 	health_bar = $health_bar
 	$attack_timer.timeout.connect(damageplayer)
