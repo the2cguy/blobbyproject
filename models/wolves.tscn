@@ -115,10 +115,9 @@ bg_color = Color(0.811765, 0, 0, 1)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_tob82")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ry76s")
 
-[node name="wolf" type="CharacterBody2D" node_paths=PackedStringArray("health_bar")]
+[node name="wolf" type="CharacterBody2D"]
 script = ExtResource("1_ga0xj")
 speed = 200.0
-health_bar = NodePath("health_bar")
 knockback_multiplier = 4.205
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

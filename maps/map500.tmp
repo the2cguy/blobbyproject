@@ -356,7 +356,7 @@ sources/8 = SubResource("TileSetAtlasSource_pki1p")
 
 [node name="model_player" parent="." instance=ExtResource("1_h5upq")]
 z_index = 10
-position = Vector2(370, -1503)
+position = Vector2(-438, 42)
 speed = 120.0
 sprint_speed = 150.0
 
@@ -385,28 +385,28 @@ seedidk = 5615
 
 [node name="main_hud" parent="CanvasLayer" instance=ExtResource("6_dwi81")]
 
-[node name="ammo_text" parent="CanvasLayer/main_hud" index="2" node_paths=PackedStringArray("weapon")]
-weapon = NodePath("../../../model_player/AnimatedSprite2D/weapon")
-
 [node name="enemy" parent="." instance=ExtResource("12_y1ako")]
 z_index = 11
 position = Vector2(10, -1732)
 speed = 0.5
 
-[node name="enemy2" parent="." instance=ExtResource("12_y1ako")]
+[node name="enemy2" parent="." node_paths=PackedStringArray("health_bar") instance=ExtResource("12_y1ako")]
 z_index = 11
 position = Vector2(104, -1739)
 speed = 0.5
+health_bar = NodePath("../enemy/health_bar")
 
-[node name="enemy3" parent="." instance=ExtResource("12_y1ako")]
+[node name="enemy3" parent="." node_paths=PackedStringArray("health_bar") instance=ExtResource("12_y1ako")]
 z_index = 11
 position = Vector2(38, -1818)
 speed = 0.5
+health_bar = NodePath("../enemy/health_bar")
 
-[node name="enemy4" parent="." instance=ExtResource("12_y1ako")]
+[node name="enemy4" parent="." node_paths=PackedStringArray("health_bar") instance=ExtResource("12_y1ako")]
 z_index = 11
 position = Vector2(125, -1814)
 speed = 0.5
+health_bar = NodePath("../enemy/health_bar")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_w2183")

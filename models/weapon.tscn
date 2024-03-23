@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cew0rw5er5lwe"]
+[gd_scene load_steps=23 format=3 uid="uid://cew0rw5er5lwe"]
 
 [ext_resource type="Script" path="res://scripts/weapon.gd" id="1_kvi4o"]
 [ext_resource type="Texture2D" uid="uid://cm8uowf5x1wjp" path="res://sprites/weapons/blitz34/blitz34-v4.png" id="2_ckqo6"]
 [ext_resource type="Texture2D" uid="uid://dwql531q3s6gu" path="res://sprites/weapons/zk2_gen3/zk2_gen3-v2.png" id="3_5hw1i"]
+[ext_resource type="Texture2D" uid="uid://1150b602ifk4" path="res://sprites/weapons/stick/stick.png" id="3_5vvrk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tjg1n"]
 atlas = ExtResource("2_ckqo6")
@@ -19,6 +20,30 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vds8"]
 atlas = ExtResource("2_ckqo6")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4res4"]
+atlas = ExtResource("3_5vvrk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns2ll"]
+atlas = ExtResource("3_5vvrk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tda1f"]
+atlas = ExtResource("3_5vvrk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sakxi"]
+atlas = ExtResource("3_5vvrk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtay1"]
+atlas = ExtResource("3_5vvrk")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm7xn"]
+atlas = ExtResource("3_5vvrk")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_en1ik"]
 atlas = ExtResource("3_5hw1i")
@@ -70,6 +95,37 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4res4")
+}],
+"loop": true,
+"name": &"stick_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns2ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tda1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sakxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtay1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm7xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns2ll")
+}],
+"loop": false,
+"name": &"stick_melee",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_en1ik")
 }],
 "loop": true,
@@ -97,22 +153,27 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="weapon" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rrlkv"]
+size = Vector2(22, 25)
+
+[node name="weapon" type="Node2D" node_paths=PackedStringArray("hurtArea")]
 script = ExtResource("1_kvi4o")
+hurtArea = NodePath("melee_area")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(8, -1)
 sprite_frames = SubResource("SpriteFrames_e3po5")
-animation = &"zk2_gen3_shooting"
-frame = 4
-frame_progress = 1.0
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
+animation = &"stick_melee"
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(13, 0)
 
 [node name="ReloadTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="melee_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="melee_area"]
+position = Vector2(13, -5)
+shape = SubResource("RectangleShape2D_rrlkv")

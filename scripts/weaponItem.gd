@@ -6,6 +6,6 @@ class_name weaponItem
 @export var reload_time:float
 @export var ammo:int
 @export var ROF:int
-@export var weapon_type:String
+@export_enum("SEMIAUTO","AUTO","MELEE") var weapon_type:String
 @export var knockback:float
 @export var damage:float

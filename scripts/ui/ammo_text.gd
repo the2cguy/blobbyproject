@@ -1,5 +1,5 @@
 extends Label
 
-
+@export var weapon:Node2D
 func _process(delta: float) -> void:
-	text = str(Global.guns[Global.current_weapon_id].ammo)
+	text = str(weapon.weapons[weapon.weaponID].ammo)

@@ -7,7 +7,7 @@ var roamDirection:float
 var steering = Vector2.ZERO
 @export_range(100, 2000) var speed:float
 @export var navAgent:NavigationAgent2D
-@export var health_bar:ProgressBar
+var health_bar:ProgressBar
 @export_range(0.0, 10.0) var knockback_multiplier:float
 var anger_level = 1.5
 func damageplayer():
@@ -15,6 +15,7 @@ func damageplayer():
 		if i.name == "model_player":
 			i.get_node("health_component").damage(0.5)
 func _ready() -> void:
+	health_bar = $health_bar
 	$attack_timer.timeout.connect(damageplayer)
 func knockbackFunc(direction:Vector2):
 	velocity = direction * get_process_delta_time() * 100
