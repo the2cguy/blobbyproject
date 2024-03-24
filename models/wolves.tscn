@@ -169,5 +169,7 @@ step = 0.5
 value = 5.0
 show_percentage = false
 
+[node name="gizmo_player" type="Node2D" parent="."]
+
 [connection signal="damageIncoming" from="health_component" to="." method="_on_health_component_damage_incoming"]
 [connection signal="timeout" from="roam_timer" to="." method="_on_roam_timer_timeout"]

@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 400.0
 @export var sprint_speed:float
 @onready var noise = FastNoiseLite.new()
+@onready var navreg:NavigationRegion2D = get_parent().get_node("NavigationRegion2D")
 var isShake = false
 var noise_y = 0.0
 var amount:int
@@ -31,7 +32,8 @@ func _process(delta):
 		$Camera2D.offset = Vector2(noise.get_noise_2d(noise.seed, noise_y) * amount * 2, noise.get_noise_2d(noise.seed, noise_y) * amount)
 		noise_y += 1
 		amount -= 1 * delta
-
+	if Input.is_action_just_pressed("next"):
+		navreg.bake_navigation_polygon(true)
 func _on_health_component_damage_incoming() -> void:
 	pass
 	#amount = 100

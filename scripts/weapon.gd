@@ -9,6 +9,7 @@ var allowFire = true
 var bullet = preload("res://models/model_default_bullet.tscn")
 var blitz34:weaponItem = preload("res://inventory/weapons/blitz34.tres")
 var stick:weaponItem = preload("res://inventory/weapons/stick.tres")
+@onready var animationtree:AnimationTree = $AnimationTree
 @export var reloadBar:ProgressBar
 @export var hurtArea:Area2D
 # Called when the node enters the scene tree for the first time.
@@ -24,11 +25,16 @@ func _attack():
 # Guns Function
 func reduceAmmo(amount:int):
 	weapons[weaponID].ammo -= amount
-	print(weapons[weaponID].ammo)
 func _fire():
 	if weapons[weaponID].ammo > 0 and shootDelayTimer.is_stopped() and reloadTimer.is_stopped():
 		allowFire = true
+	if not weapons[weaponID].ammo > 0:
+		animationtree["parameters/conditions/isShooting"] = false		
+		animationtree["parameters/conditions/isStop"] = true		
 	if allowFire:
+		animationtree["parameters/conditions/isStop"] = false		
+		animationtree["parameters/conditions/isShooting"] = true		
+		print("muahahaha")
 		reduceAmmo(1)
 		$rotate_weapon/Sprite2D.play(weapons[weaponID].name+"_shooting")
 		# Spawn Bullet
@@ -67,14 +73,12 @@ func _ready():
 func _process(delta):
 	# Point melee rotation towards mouse
 	$melee_rotation.look_at(get_global_mouse_position())
-	print($melee_rotation.rotation)
 	# Flip weapon if mouse X is lower than this X
 	if get_global_mouse_position().x > global_position.x:
 		$rotate_weapon.scale.x = 1
 	else:
 		$rotate_weapon.scale.x = -1
 	# Update reload bar
-	print($melee_rotation.global_scale, $melee_rotation.global_rotation)
 	reloadBar.value = reloadTimer.time_left
 	#Point towards the cursor and reload weapon, If weaponType is SEMIAUTO or AUTO
 	if weapons[weaponID].weapon_type == "SEMIAUTO" or weapons[weaponID].weapon_type == "AUTO":
@@ -89,6 +93,8 @@ func _process(delta):
 			_fire()
 		elif Input.is_action_just_released("shoot"):
 			_idleWeapon()
+			animationtree["parameters/conditions/isShooting"] = false
+			animationtree["parameters/conditions/isStop"] = true
 	#Semi-automatic shooting
 	if weapons[weaponID].weapon_type == "SEMIAUTO":
 		if Input.is_action_just_pressed("shoot"):

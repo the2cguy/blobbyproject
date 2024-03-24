@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cew0rw5er5lwe"]
+[gd_scene load_steps=38 format=3 uid="uid://cew0rw5er5lwe"]
 
 [ext_resource type="Script" path="res://scripts/weapon.gd" id="1_kvi4o"]
 [ext_resource type="Texture2D" uid="uid://cm8uowf5x1wjp" path="res://sprites/weapons/blitz34/blitz34-v4.png" id="2_ckqo6"]
@@ -157,6 +157,137 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrlkv"]
 size = Vector2(74, 48.5)
 
+[sub_resource type="Animation" id="Animation_wu3ei"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rotate_weapon/Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(22, -0.25, 0, 0.25, 0, 16, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.001)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("rotate_weapon/Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.001)
+}
+
+[sub_resource type="Animation" id="Animation_jpv2o"]
+resource_name = "blowback"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rotate_weapon/Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(22, -0.25, 0, 0.25, 0, 19, -0.25, 0, 0.25, 0, 22, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("rotate_weapon/Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.6)
+}
+
+[sub_resource type="Animation" id="Animation_5q7ea"]
+resource_name = "stop"
+length = 0.6
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rotate_weapon/Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(19, -0.25, 0, 0.4, -0.662111, 22, -0.4, -0.0649376, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("rotate_weapon/Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b7ygw"]
+_data = {
+"RESET": SubResource("Animation_wu3ei"),
+"blowback": SubResource("Animation_jpv2o"),
+"stop": SubResource("Animation_5q7ea")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_220bx"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_khiim"]
+animation = &"blowback"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4kdko"]
+animation = &"stop"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h85yb"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"isStop"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5viah"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"isShooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qmpcv"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"isStop"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6uaho"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"isShooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3v642"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1c13n"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h3nhm"]
+states/RESET/node = SubResource("AnimationNodeAnimation_220bx")
+states/RESET/position = Vector2(534, 139)
+states/Start/position = Vector2(208, 81)
+"states/blowback 2/node" = SubResource("AnimationNodeAnimation_khiim")
+"states/blowback 2/position" = Vector2(447, 54)
+"states/stop 2/node" = SubResource("AnimationNodeAnimation_4kdko")
+"states/stop 2/position" = Vector2(663, 76)
+transitions = ["blowback 2", "stop 2", SubResource("AnimationNodeStateMachineTransition_h85yb"), "stop 2", "blowback 2", SubResource("AnimationNodeStateMachineTransition_5viah"), "stop 2", "RESET", SubResource("AnimationNodeStateMachineTransition_qmpcv"), "RESET", "blowback 2", SubResource("AnimationNodeStateMachineTransition_6uaho"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_3v642"), "blowback 2", "End", SubResource("AnimationNodeStateMachineTransition_1c13n")]
+
 [node name="weapon" type="Node2D" node_paths=PackedStringArray("hurtArea")]
 script = ExtResource("1_kvi4o")
 hurtArea = NodePath("rotate_weapon/Sprite2D/melee_area")
@@ -167,6 +298,7 @@ one_shot = true
 [node name="melee_rotation" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="melee_rotation"]
+visible = false
 position = Vector2(24, -1)
 scale = Vector2(0.0744547, -0.0773674)
 texture = ExtResource("5_xe472")
@@ -177,7 +309,8 @@ texture = ExtResource("5_xe472")
 texture_filter = 1
 position = Vector2(22, 0)
 sprite_frames = SubResource("SpriteFrames_e3po5")
-animation = &"stick_melee"
+animation = &"blitz34_shooting"
+speed_scale = 5.0
 
 [node name="Marker2D" type="Marker2D" parent="rotate_weapon/Sprite2D"]
 position = Vector2(5, 1)
@@ -187,3 +320,18 @@ position = Vector2(-8, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rotate_weapon/Sprite2D/melee_area"]
 shape = SubResource("RectangleShape2D_rrlkv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b7ygw")
+}
+speed_scale = 4.0
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b7ygw")
+}
+tree_root = SubResource("AnimationNodeStateMachine_h3nhm")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/isShooting = false
+parameters/conditions/isStop = false

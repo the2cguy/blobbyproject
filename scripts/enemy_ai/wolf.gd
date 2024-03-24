@@ -1,14 +1,15 @@
 extends CharacterBody2D
-
 var isAware:bool = false
 var player:Node2D
 var knockback = Vector2(0, 0)
 var roamDirection:float
 var steering = Vector2.ZERO
+@export_enum("b", "a") var k:String
 @export_range(100, 2000) var speed:float
 @export var navAgent:NavigationAgent2D
-var health_bar:ProgressBar
 @export_range(0.0, 10.0) var knockback_multiplier:float
+var current_path: Array[Vector2i]
+var health_bar:ProgressBar
 var anger_level = 1.5
 func damageplayer():
 	for i in $Area2D.get_overlapping_bodies():
@@ -21,11 +22,15 @@ func _ready() -> void:
 	$attack_timer.timeout.connect(damageplayer)
 func knockbackFunc(direction:Vector2):
 	velocity = direction * get_process_delta_time() * 100
-	print(velocity)
 	$GPUParticles2D.rotation =	(direction.angle())
 func _physics_process(delta: float) -> void:
+	# If enemy is aware then moves toward the player.
 	if isAware:
-		velocity = velocity.move_toward((Global.player.global_position - global_position), 200*delta)
+		$gizmo_player.look_at(Global.player.global_position)	
+		$gizmo_player.rotate(deg_to_rad(45))
+		var direction = Vector2.RIGHT.rotated($gizmo_player.rotation)
+		velocity = velocity.move_toward((direction * 80), 200*delta)
+	# If enemy is NOT AWARE then roam around.
 	else:
 		velocity = velocity.move_toward(Vector2.RIGHT.rotated(roamDirection) * 50, 50*delta)
 	move_and_slide()
