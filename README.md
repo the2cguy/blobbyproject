@@ -12,3 +12,15 @@ Notion link: https://mixolydian-pocket-35b.notion.site/Blobby-Game-Project-c6438
 - Press **WASD** to move
 - Press **R** to reload
 - Press **F** to change weapon
+
+## Credits (Any works by another people)
+### Useful softwares I used
+- Pixelorama, for ALL pixel arts: https://orama-interactive.itch.io/pixelorama
+- Godot Engine, engine used for this game: https://godotengine.org/
+- 
+### IRL Friends
+- Agastya Ravindra (Discord: zombi9111), helps with pixel art
+- Hizkia Damar Suhardi (Discord: slaxxeviron), helps with game design inspiration
+### Community guys
+- kolpaque (Godot Engine discord server)
+    - Helps with tilemap & navmesh problem
