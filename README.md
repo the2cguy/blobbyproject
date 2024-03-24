@@ -12,3 +12,11 @@ Notion link: https://mixolydian-pocket-35b.notion.site/Blobby-Game-Project-c6438
 - Press **WASD** to move
 - Press **R** to reload
 - Press **F** to change weapon
+
+## Credits (Any works by another people)
+### IRL Friends
+- Agastya Ravindra (Discord: zombi9111)
+- Hizkia Damar Suhardi (Discord: slaxxeviron)
+### Community guys
+- kolpaque (Godot Engine discord server)
+    - Helps with tilemap & navmesh problem
