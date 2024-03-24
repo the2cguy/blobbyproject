@@ -14,13 +14,13 @@ var stick:weaponItem = preload("res://inventory/weapons/stick.tres")
 # Called when the node enters the scene tree for the first time.
 # Melee Function
 func _attack():
-	$Sprite2D.play(weapons[weaponID].name+"_melee")
+	$rotate_weapon/Sprite2D.play(weapons[weaponID].name+"_melee")
 	for i in hurtArea.get_overlapping_bodies():
 		if i.name != "model_player":
 			if i.has_node("health_component"):
 				i.get_node("health_component").damage(0.5)
 			if i.has_method("knockbackFunc"):
-				i.knockbackFunc(Vector2.RIGHT.rotated(rotation) * weapons[weaponID].knockback)
+				i.knockbackFunc(Vector2.RIGHT.rotated($melee_rotation.rotation) * weapons[weaponID].knockback)
 # Guns Function
 func reduceAmmo(amount:int):
 	weapons[weaponID].ammo -= amount
@@ -30,10 +30,10 @@ func _fire():
 		allowFire = true
 	if allowFire:
 		reduceAmmo(1)
-		$Sprite2D.play(weapons[weaponID].name+"_shooting")
+		$rotate_weapon/Sprite2D.play(weapons[weaponID].name+"_shooting")
 		# Spawn Bullet
 		var bullet_instance = bullet.instantiate()
-		bullet_instance.global_position = $Marker2D.global_position
+		bullet_instance.global_position = $rotate_weapon/Sprite2D/Marker2D.global_position
 		get_node("/root/map_chapter1_test").add_child(bullet_instance)
 		# Delay Fire
 		allowFire = false
@@ -48,9 +48,9 @@ func _nextWeapon():
 	weaponID += 1
 	if weaponID > (len(weapons) - 1):
 		weaponID = 0
-	$Sprite2D.play(weapons[weaponID].name+"_idle")
+	$rotate_weapon/Sprite2D.play(weapons[weaponID].name+"_idle")
 func _idleWeapon():
-	$Sprite2D.play(weapons[weaponID].name+"_idle")
+	$rotate_weapon/Sprite2D.play(weapons[weaponID].name+"_idle")
 # Normal Init
 func _ready():
 	# Init Timers
@@ -65,11 +65,21 @@ func _ready():
 	Global.weapon = weapons
 	_nextWeapon()
 func _process(delta):
+	# Point melee rotation towards mouse
+	$melee_rotation.look_at(get_global_mouse_position())
+	print($melee_rotation.rotation)
+	# Flip weapon if mouse X is lower than this X
+	if get_global_mouse_position().x > global_position.x:
+		$rotate_weapon.scale.x = 1
+	else:
+		$rotate_weapon.scale.x = -1
 	# Update reload bar
+	print($melee_rotation.global_scale, $melee_rotation.global_rotation)
 	reloadBar.value = reloadTimer.time_left
-	#Point towards the cursor, if weaponType is SEMIAUTO or AUTO
+	#Point towards the cursor and reload weapon, If weaponType is SEMIAUTO or AUTO
 	if weapons[weaponID].weapon_type == "SEMIAUTO" or weapons[weaponID].weapon_type == "AUTO":
-		look_at(get_global_mouse_position())
+		$rotate_weapon/Sprite2D.look_at(get_global_mouse_position())
+		# Reload weapon
 		if Input.is_action_just_pressed("reload") and reloadTimer.is_stopped():
 			reloadTimer.start(weapons[weaponID].reload_time)
 			reloadBar.get_parent().show()	
@@ -79,13 +89,15 @@ func _process(delta):
 			_fire()
 		elif Input.is_action_just_released("shoot"):
 			_idleWeapon()
-	#Semiautomatic shooting
+	#Semi-automatic shooting
 	if weapons[weaponID].weapon_type == "SEMIAUTO":
 		if Input.is_action_just_pressed("shoot"):
 			_fire()
 	#If weapon is melee
 	if weapons[weaponID].weapon_type == "MELEE": 
+		$rotate_weapon/Sprite2D.rotation = 0.0
 		if Input.is_action_just_pressed("shoot"):
 			_attack()
+			
 	if Input.is_action_just_pressed("switch"):
 			_nextWeapon()

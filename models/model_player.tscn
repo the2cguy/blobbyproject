@@ -50,14 +50,18 @@ size = Vector2(26, 15)
 script = ExtResource("1_5mk0y")
 speed = 200.0
 
+[node name="weapon" parent="." instance=ExtResource("4_41w43")]
+z_index = 21
+position = Vector2(9, 5)
+
+[node name="rotate_weapon" parent="weapon" index="2"]
+position = Vector2(-10, -8)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_pud7h")
 animation = &"idle"
 flip_h = true
-
-[node name="weapon" parent="AnimatedSprite2D" instance=ExtResource("4_41w43")]
-position = Vector2(10, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
@@ -70,3 +74,5 @@ weapons = Array[Resource("res://scripts/weaponItem.gd")]([ExtResource("5_ojbls")
 [node name="health_component" parent="." instance=ExtResource("7_acm42")]
 
 [connection signal="damageIncoming" from="health_component" to="." method="_on_health_component_damage_incoming"]
+
+[editable path="weapon"]

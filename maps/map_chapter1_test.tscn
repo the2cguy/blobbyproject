@@ -360,13 +360,13 @@ position = Vector2(370, -1503)
 speed = 120.0
 sprint_speed = 150.0
 
-[node name="weapon" parent="model_player/AnimatedSprite2D" index="0" node_paths=PackedStringArray("reloadBar")]
-reloadBar = NodePath("../../../CanvasLayer/main_hud/reload_control/reload_progress")
+[node name="weapon" parent="model_player" index="0" node_paths=PackedStringArray("reloadBar")]
+reloadBar = NodePath("../../CanvasLayer/main_hud/reload_control/reload_progress")
 
-[node name="inventory_component" parent="model_player" index="2" node_paths=PackedStringArray("items_ui")]
+[node name="inventory_component" parent="model_player" index="3" node_paths=PackedStringArray("items_ui")]
 items_ui = NodePath("../../CanvasLayer/main_hud/items_ui")
 
-[node name="health_component" parent="model_player" index="3"]
+[node name="health_component" parent="model_player" index="4"]
 health = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="model_player"]
@@ -386,7 +386,7 @@ seedidk = 5615
 [node name="main_hud" parent="CanvasLayer" instance=ExtResource("6_dwi81")]
 
 [node name="ammo_text" parent="CanvasLayer/main_hud" index="2" node_paths=PackedStringArray("weapon")]
-weapon = NodePath("../../../model_player/AnimatedSprite2D/weapon")
+weapon = NodePath("../../../model_player/weapon")
 
 [node name="enemy" parent="." instance=ExtResource("12_y1ako")]
 z_index = 11
