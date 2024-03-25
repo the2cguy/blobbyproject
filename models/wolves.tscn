@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ehw7r0okjnko"]
+[gd_scene load_steps=16 format=3 uid="uid://ehw7r0okjnko"]
 
 [ext_resource type="Script" path="res://scripts/enemy_ai/wolf.gd" id="1_ga0xj"]
 [ext_resource type="Texture2D" uid="uid://cbobqb6x4lohd" path="res://sprites/pixilart-drawing.png" id="2_tv55k"]
@@ -28,11 +28,14 @@ color = Color(0.545098, 0.886275, 1, 1)
 color_ramp = SubResource("GradientTexture1D_gww4a")
 anim_speed_max = 4.2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eunyc"]
-size = Vector2(30, 21)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ppqrq"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_45xn8"]
+radius = 36.0139
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wb7kj"]
-radius = 76.0592
+radius = 107.0
 
 [sub_resource type="Animation" id="Animation_dxxqd"]
 length = 0.001
@@ -118,7 +121,7 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_ry76s")
 [node name="wolf" type="CharacterBody2D"]
 script = ExtResource("1_ga0xj")
 speed = 200.0
-knockback_multiplier = 4.205
+knockback_multiplier = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -135,11 +138,16 @@ one_shot = true
 explosiveness = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_eunyc")
+shape = SubResource("CircleShape2D_ppqrq")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="attack_area" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area"]
+shape = SubResource("CircleShape2D_45xn8")
+
+[node name="detect_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_area"]
 shape = SubResource("CircleShape2D_wb7kj")
 
 [node name="health_component" parent="." instance=ExtResource("3_65see")]
@@ -171,5 +179,10 @@ show_percentage = false
 
 [node name="gizmo_player" type="Node2D" parent="."]
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(35, 70)
+collision_mask = 2
+
+[connection signal="body_entered" from="detect_area" to="." method="_on_area_2d_body_entered"]
 [connection signal="damageIncoming" from="health_component" to="." method="_on_health_component_damage_incoming"]
 [connection signal="timeout" from="roam_timer" to="." method="_on_roam_timer_timeout"]

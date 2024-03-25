@@ -102,7 +102,7 @@ func _process(delta):
 	#If weapon is melee
 	if weapons[weaponID].weapon_type == "MELEE": 
 		$rotate_weapon/Sprite2D.rotation = 0.0
-		if Input.is_action_just_pressed("shoot"):
+		if Input.is_action_just_pressed("shoot") and get_parent().stun_time.is_stopped():
 			_attack()
 			
 	if Input.is_action_just_pressed("switch"):

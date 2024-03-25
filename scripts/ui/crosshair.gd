@@ -17,6 +17,6 @@ func _process(delta):
 	elif Global.weapon[Global.weaponID].weapon_type == "SEMIAUTO":
 		if Input.is_action_just_pressed("shoot"):
 			$AnimationPlayer.play("crosshair_shoot")
-	else:
+	else :
 		if Input.is_action_just_pressed("shoot"):
 			$AnimationPlayer.play("crosshair_shoot")
