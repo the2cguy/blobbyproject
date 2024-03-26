@@ -1,7 +1,7 @@
 extends Node2D
 var itembtn = preload("res://ui/items_btn.tscn")
 @export var items_ui:HBoxContainer
-@export var inventory:Array[invItem]
+@export var inventory:Array[InvItem]
 @export var weapons:Array[weaponItem]
 #func loadGuns():
 #	Global.guns = []

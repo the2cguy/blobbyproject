@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://ch50nop2obxfl"]
+[gd_scene load_steps=28 format=3 uid="uid://ch50nop2obxfl"]
 
 [ext_resource type="PackedScene" uid="uid://d25or1vcbdalh" path="res://models/model_player.tscn" id="1_h5upq"]
 [ext_resource type="Texture2D" uid="uid://d17yg6x224r20" path="res://tileset/snowroad.png" id="2_03kl8"]
+[ext_resource type="Resource" uid="uid://rwvlteer80fo" path="res://inventory/player_inventory.tres" id="2_g4nu6"]
 [ext_resource type="Texture2D" uid="uid://dydcge6422ky7" path="res://tileset/houseandsteps.png" id="3_5c6ur"]
 [ext_resource type="Texture2D" uid="uid://c3u4gdsjjs17t" path="res://tileset/background_snow.png" id="3_avhwu"]
 [ext_resource type="Texture2D" uid="uid://ckyhcg3gpl23q" path="res://tileset/dirt-v2.png" id="3_i7a03"]
@@ -13,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dp3n4di67m5bo" path="res://tileset/road.png" id="9_xhh1h"]
 [ext_resource type="PackedScene" uid="uid://ehw7r0okjnko" path="res://models/wolves.tscn" id="12_y1ako"]
 [ext_resource type="Texture2D" uid="uid://ca4ppct1jbkr3" path="res://tileset/house-v2.png" id="13_tknj6"]
+[ext_resource type="PackedScene" uid="uid://cdptqirg17c64" path="res://inventory/collectibles/medkit_collectible.tscn" id="15_l5bbt"]
+[ext_resource type="PackedScene" uid="uid://cll4ycl775rsy" path="res://inventory/collectibles/blitz34_collectible.tscn" id="16_8rylt"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w2183"]
 outlines = Array[PackedVector2Array]([PackedVector2Array(-2204, -2604, 1928, -2776, 2523, 1699, -2492, 1707)])
@@ -340,6 +343,7 @@ z_index = 10
 position = Vector2(370, -1503)
 speed = 120.0
 sprint_speed = 150.0
+inv = ExtResource("2_g4nu6")
 
 [node name="weapon" parent="model_player" index="0" node_paths=PackedStringArray("reloadBar")]
 reloadBar = NodePath("../../CanvasLayer/main_hud/reload_control/reload_progress")
@@ -353,6 +357,8 @@ health = 10.0
 [node name="Camera2D" type="Camera2D" parent="model_player"]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="procedural_map" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("4_iohd6")]
 distribution_frequency = {
@@ -422,6 +428,12 @@ layer_7/tile_data = PackedInt32Array(458752, 131077, 7)
 
 [node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D"]
 polygon = PackedVector2Array(437, -1646, 438, -1552, 543, -1628)
+
+[node name="medkit_collectible" parent="." instance=ExtResource("15_l5bbt")]
+position = Vector2(266, -1540)
+
+[node name="blitz34_collectible" parent="." instance=ExtResource("16_8rylt")]
+position = Vector2(478, -1449)
 
 [editable path="model_player"]
 [editable path="model_player/weapon"]

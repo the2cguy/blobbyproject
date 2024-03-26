@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfxlkdnppxv1n"]
+
+[ext_resource type="Script" path="res://scripts/ui/inv_ui.gd" id="1_efp3q"]
+[ext_resource type="Texture2D" uid="uid://ci887hwdsjnw" path="res://ui/imgs/ui_inventory.png" id="2_uvquu"]
+[ext_resource type="PackedScene" uid="uid://dk103wdpc54an" path="res://inventory/inventory_slot.tscn" id="3_x5u02"]
+
+[node name="inv_ui" type="Control"]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_efp3q")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 116.0
+offset_bottom = 32.0
+mouse_default_cursor_shape = 4
+texture = ExtResource("2_uvquu")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 12
+patch_margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 40.0
+theme_override_constants/separation = -4
+
+[node name="inventory_slot" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_x5u02")]
+layout_mode = 2
+
+[node name="inventory_slot2" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_x5u02")]
+layout_mode = 2
+
+[node name="inventory_slot3" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_x5u02")]
+layout_mode = 2
+
+[node name="inventory_slot4" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_x5u02")]
+layout_mode = 2

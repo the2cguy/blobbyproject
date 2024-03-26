@@ -15,7 +15,7 @@ var weaponBlueprint:Dictionary = {
 	}
 }
 var weaponID:int = 0
-var weapon:Array[weaponItem]
+var weapon
 var reload_progress:ProgressBar
 var items_ui:HBoxContainer
 var itembtn = preload("res://ui/items_btn.tscn")

@@ -8,4 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	max_value = Global.weapon[Global.weaponID].reload_time
+	if Global.weapon.get_current_weapon():
+		max_value = Global.weapon.get_current_weapon().reload_time

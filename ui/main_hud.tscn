@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cee7omdbwiski"]
+[gd_scene load_steps=22 format=3 uid="uid://cee7omdbwiski"]
 
 [ext_resource type="Texture2D" uid="uid://bplgfffgs078u" path="res://ui/imgs/crosshair_default.png" id="1_kfkct"]
 [ext_resource type="Script" path="res://scripts/ui/crosshair.gd" id="2_jcp26"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://pii3d3a64xoa" path="res://ui/imgs/reloadicon.png" id="7_6y3vc"]
 [ext_resource type="Texture2D" uid="uid://b00mjr26nt6sf" path="res://ui/imgs/health_icon_ui.png" id="8_ivipe"]
 [ext_resource type="Script" path="res://scripts/ui/health_text.gd" id="9_6n2la"]
+[ext_resource type="PackedScene" uid="uid://dfxlkdnppxv1n" path="res://inventory/inv_ui.tscn" id="10_ep4ip"]
 
 [sub_resource type="Animation" id="Animation_myw14"]
 length = 0.001
@@ -115,6 +116,15 @@ font = ExtResource("4_2y6bi")
 font_size = 47
 font_color = Color(0.145098, 0.145098, 0.27451, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_rsme7"]
+font = ExtResource("4_2y6bi")
+font_size = 23
+
+[sub_resource type="LabelSettings" id="LabelSettings_qb4oh"]
+font = ExtResource("4_2y6bi")
+font_size = 29
+font_color = Color(0, 0, 0, 1)
+
 [node name="main_hud" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -124,11 +134,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="crosshair" type="TextureRect" parent="."]
+z_index = 5
 texture_filter = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 pivot_offset = Vector2(20, 20)
+mouse_filter = 2
 texture = ExtResource("1_kfkct")
 script = ExtResource("2_jcp26")
 
@@ -174,9 +186,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -109.0
-offset_top = -77.0
+offset_top = -126.0
 offset_right = -69.0
-offset_bottom = -37.0
+offset_bottom = -86.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -261,3 +273,68 @@ offset_bottom = 534.0
 text = "5.0"
 label_settings = SubResource("LabelSettings_g1l1t")
 script = ExtResource("9_6n2la")
+
+[node name="black_bar_top" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = 576.0
+offset_bottom = 54.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="black_bar_down" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -54.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="black_bar_down"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 15.0
+offset_right = 304.0
+offset_bottom = 39.0
+text = "PRESS TO OPEN INVENTORY"
+label_settings = SubResource("LabelSettings_rsme7")
+
+[node name="ColorRect" type="ColorRect" parent="black_bar_down/Label"]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -2.0
+offset_right = -8.0
+offset_bottom = 27.0
+
+[node name="Label" type="Label" parent="black_bar_down/Label/ColorRect"]
+layout_mode = 0
+offset_right = 29.0
+offset_bottom = 29.0
+text = "q"
+label_settings = SubResource("LabelSettings_qb4oh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="inv_ui" parent="." instance=ExtResource("10_ep4ip")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -356.0
+offset_top = -117.0
+offset_right = -228.0
+offset_bottom = -85.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3, 3)

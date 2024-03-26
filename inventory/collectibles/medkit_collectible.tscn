@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdptqirg17c64"]
+
+[ext_resource type="Script" path="res://scripts/inventory/collectibles/medkit_collectible.gd" id="1_pjgxa"]
+[ext_resource type="Resource" uid="uid://cvoy6kukp1hb6" path="res://inventory/medkit.tres" id="2_8pr6p"]
+[ext_resource type="Texture2D" uid="uid://fiarpo6rw8ir" path="res://ui/imgs/gun icon.png" id="3_miqi2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1gfkx"]
+radius = 14.0357
+
+[node name="medkit_collectible" type="StaticBody2D"]
+script = ExtResource("1_pjgxa")
+item = ExtResource("2_8pr6p")
+
+[node name="collectible_detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectible_detect"]
+shape = SubResource("CircleShape2D_1gfkx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_miqi2")
+
+[connection signal="body_entered" from="collectible_detect" to="." method="_on_collectible_detect_body_entered"]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://cvoy6kukp1hb6"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item.gd" id="1_ae4jf"]
+[ext_resource type="Texture2D" uid="uid://fiarpo6rw8ir" path="res://ui/imgs/gun icon.png" id="2_xow8r"]
+
+[resource]
+script = ExtResource("1_ae4jf")
+name = "medkit"
+texture = ExtResource("2_xow8r")

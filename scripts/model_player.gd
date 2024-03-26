@@ -8,7 +8,10 @@ var isShake = false
 var noise_y = 0.0
 var amount:int
 var stun_time:Timer = Timer.new()
+
+@export var inv:Inv
 func _ready() -> void:
+	#Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	stun_time.wait_time = RandomNumberGenerator.new().randf_range(0.7, 1.4)
 	stun_time.one_shot = true
 	add_child(stun_time)
@@ -20,9 +23,9 @@ func _process(delta):
 	print(stun_time.is_stopped())
 	var dir = Input.get_vector("left", "right", "up", "down")
 	if Input.is_action_pressed("sprint"):
-		velocity = lerp(velocity, dir * sprint_speed, 0.02)
+		velocity = lerp(velocity, dir * sprint_speed, 0.2)
 	else:
-		velocity = lerp(velocity, dir * speed, 0.02)
+		velocity = lerp(velocity, dir * speed, 0.2)
 	if dir:
 		$AnimatedSprite2D.play("walk")
 	else:
@@ -43,6 +46,7 @@ func _on_health_component_damage_incoming() -> void:
 	if stun_time.is_stopped():
 		stun_time.start()
 	pass
-	#amount = 100
-	#isShake = true
 
+func collect(item:InvItem):
+	inv.insert(item)
+	$weapon.load_weapons()

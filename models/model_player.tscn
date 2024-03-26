@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://d25or1vcbdalh"]
+[gd_scene load_steps=15 format=3 uid="uid://d25or1vcbdalh"]
 
 [ext_resource type="Script" path="res://scripts/model_player.gd" id="1_5mk0y"]
 [ext_resource type="Texture2D" uid="uid://b8qn2j4mqh81e" path="res://sprites/blobby-v3.png" id="2_m1h4o"]
+[ext_resource type="Resource" uid="uid://rwvlteer80fo" path="res://inventory/player_inventory.tres" id="3_g37i1"]
 [ext_resource type="PackedScene" uid="uid://cew0rw5er5lwe" path="res://models/weapon.tscn" id="4_41w43"]
 [ext_resource type="Script" path="res://scripts/inventory_component.gd" id="4_ryw4s"]
 [ext_resource type="Resource" uid="uid://rv68dodfrn3e" path="res://inventory/weapons/blitz34.tres" id="5_ojbls"]
@@ -54,6 +55,7 @@ speed = 200.0
 [node name="weapon" parent="." instance=ExtResource("4_41w43")]
 z_index = 21
 position = Vector2(9, 5)
+inv = ExtResource("3_g37i1")
 
 [node name="rotate_weapon" parent="weapon" index="2"]
 position = Vector2(-10, -8)
