@@ -48,8 +48,8 @@ func detect_LOS():
 		var obj_collide = raycast.get_collider()
 		if obj_collide.name == "model_player":
 			isLOS = true
-			print("detect LOS")
-		#print(obj_collide.name)
+			#print("detect LOS")
+		##print(obj_collide.name)
 	return isLOS
 func damage_player():
 	for i in attack_player.get_overlapping_bodies():
@@ -92,7 +92,7 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.RIGHT.rotated(roam_direction) * 40, delta * 40)
 	if state.aware():
 		var MAXSPEED = 50
-		print("muahahadwdwdwdwdwdw")
+		#print("muahahadwdwdwdwdwdw")
 		var steering:Vector2 = Vector2.ZERO
 		steering += seek_steering()
 		steering = steering.clamp(Vector2(-MAXSPEED, -MAXSPEED), Vector2(MAXSPEED, MAXSPEED))
@@ -106,7 +106,7 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(direction * 50, 100*delta)
 		if not detect_LOS():
 			state.set_state("idle")
-		print(detect_LOS())
+		#print(detect_LOS())
 
 		
 	move_and_slide()

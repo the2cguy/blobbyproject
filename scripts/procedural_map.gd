@@ -68,5 +68,5 @@ func _process(delta: float) -> void:
 #	for x in range(levelArea[0].x, levelArea[1].x):
 #		for y in range(levelArea[0].y, levelArea[1].y):
 #			get_parent().get_node("map").set_cell(2, Vector2i(x, y), 6, Vector2i(remap(procedural.get_noise_2d(x, y), 0, 1.0, 3, 0), 0))
-#	print(procedural.frequency)
+#	#print(procedural.frequency)
 

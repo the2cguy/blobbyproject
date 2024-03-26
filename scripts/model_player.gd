@@ -20,7 +20,7 @@ func _ready() -> void:
 	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
 	Global.player = self
 func _process(delta):
-	print(stun_time.is_stopped())
+	#print(stun_time.is_stopped())
 	var dir = Input.get_vector("left", "right", "up", "down")
 	if Input.is_action_pressed("sprint"):
 		velocity = lerp(velocity, dir * sprint_speed, 0.2)

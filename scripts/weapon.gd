@@ -24,7 +24,6 @@ func _ready():
 	
 	
 func load_weapons():
-	print(inv.slots[0].item.is_weapon)
 	weapons = []
 	for i in range(len(inv.slots)):
 		if inv.slots[i].item != null:
@@ -36,7 +35,6 @@ func load_weapons():
 
 
 func get_current_weapon() -> weaponItem:
-	print(weapons)
 	if len(weapons) > 0:
 		return weapons[weaponID].weapon
 	else:
@@ -65,7 +63,7 @@ func _fire():
 	if allowFire:
 		animationtree["parameters/conditions/isStop"] = false		
 		animationtree["parameters/conditions/isShooting"] = true		
-		print("muahahaha")
+		#print("muahahaha")
 		reduceAmmo(1)
 		$rotate_weapon/Sprite2D.play(get_current_weapon().name+"_shooting")
 		# Spawn Bullet
@@ -87,6 +85,7 @@ func _nextWeapon():
 		weaponID = 0
 	$rotate_weapon/Sprite2D.play(get_current_weapon().name+"_idle")
 	playerdata.weaponid = weaponID
+	print(weaponID)
 func _idleWeapon():
 	$rotate_weapon/Sprite2D.play(get_current_weapon().name+"_idle")
 func _process(delta):

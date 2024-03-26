@@ -14,6 +14,10 @@ func update_slots():
 		slots[i].update(inv.slots[i])
 func select_slot(id:int):
 	slots[id].select()
+	print("ID:", id)
+	for i in len(slots):
+		if i != playerdata.weaponid:
+			slots[i].unselect()
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("inventory"):
 		if is_open:
