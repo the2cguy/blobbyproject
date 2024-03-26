@@ -8,7 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#global_position = get_global_mouse_position()+Vector2(-20, -20)
+	global_position = get_global_mouse_position()+Vector2(-20, -20)
 	if Global.weapon.get_current_weapon() != null:
 		if Global.weapon.get_current_weapon().weapon_type == "AUTO":
 			if Input.is_action_pressed("shoot"):

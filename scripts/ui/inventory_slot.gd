@@ -13,17 +13,10 @@ func update(slot:InvSlot):
 		item_texture.texture = slot.item.texture
 	
 func select():
+	is_hover = true
 	$CenterContainer/Panel/TextureRect.texture = select_texture
 	$AnimationPlayer.play("hover")
 func unselect():
+	is_hover = false
 	$CenterContainer/Panel/TextureRect.texture = default_texture
 	$AnimationPlayer.play("back")
-
-func _on_mouse_entered() -> void:
-	is_hover = true
-	select()
-
-
-func _on_mouse_exited() -> void:
-	is_hover = false
-	unselect()

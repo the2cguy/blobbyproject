@@ -435,6 +435,9 @@ position = Vector2(266, -1540)
 [node name="blitz34_collectible" parent="." instance=ExtResource("16_8rylt")]
 position = Vector2(478, -1449)
 
+[node name="blitz34_collectible2" parent="." instance=ExtResource("16_8rylt")]
+position = Vector2(452, -1513)
+
 [editable path="model_player"]
 [editable path="model_player/weapon"]
 [editable path="CanvasLayer/main_hud"]

@@ -10,7 +10,7 @@ var bullet = preload("res://models/model_default_bullet.tscn")
 @onready var animationtree:AnimationTree = $AnimationTree
 @export var reloadBar:ProgressBar
 @export var hurtArea:Area2D
-
+@export var playerdata:PlayerData
 # Normal Init
 func _ready():
 	# Init Timers
@@ -86,6 +86,7 @@ func _nextWeapon():
 	if weaponID > (len(weapons) - 1):
 		weaponID = 0
 	$rotate_weapon/Sprite2D.play(get_current_weapon().name+"_idle")
+	playerdata.weaponid = weaponID
 func _idleWeapon():
 	$rotate_weapon/Sprite2D.play(get_current_weapon().name+"_idle")
 func _process(delta):

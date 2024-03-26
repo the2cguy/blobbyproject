@@ -1,13 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://d25or1vcbdalh"]
+[gd_scene load_steps=13 format=3 uid="uid://d25or1vcbdalh"]
 
 [ext_resource type="Script" path="res://scripts/model_player.gd" id="1_5mk0y"]
 [ext_resource type="Texture2D" uid="uid://b8qn2j4mqh81e" path="res://sprites/blobby-v3.png" id="2_m1h4o"]
 [ext_resource type="Resource" uid="uid://rwvlteer80fo" path="res://inventory/player_inventory.tres" id="3_g37i1"]
 [ext_resource type="PackedScene" uid="uid://cew0rw5er5lwe" path="res://models/weapon.tscn" id="4_41w43"]
 [ext_resource type="Script" path="res://scripts/inventory_component.gd" id="4_ryw4s"]
-[ext_resource type="Resource" uid="uid://rv68dodfrn3e" path="res://inventory/weapons/blitz34.tres" id="5_ojbls"]
-[ext_resource type="Resource" uid="uid://chjfgbx4n3nau" path="res://inventory/weapons/zk2_gen3.tres" id="6_x1dom"]
-[ext_resource type="Resource" uid="uid://c1i5f1iqqwsuu" path="res://inventory/weapons/stick.tres" id="7_1u0lb"]
+[ext_resource type="Resource" uid="uid://cyina1yvxjbji" path="res://inventory/player_data.tres" id="4_xuego"]
 [ext_resource type="PackedScene" uid="uid://dmm6ogo1u2fpq" path="res://models/components/health_component.tscn" id="7_acm42"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_77mgw"]
@@ -56,6 +54,7 @@ speed = 200.0
 z_index = 21
 position = Vector2(9, 5)
 inv = ExtResource("3_g37i1")
+playerdata = ExtResource("4_xuego")
 
 [node name="rotate_weapon" parent="weapon" index="2"]
 position = Vector2(-10, -8)
@@ -72,7 +71,6 @@ shape = SubResource("RectangleShape2D_6tugk")
 
 [node name="inventory_component" type="Node2D" parent="."]
 script = ExtResource("4_ryw4s")
-weapons = Array[Resource("res://scripts/weaponItem.gd")]([ExtResource("5_ojbls"), ExtResource("6_x1dom"), ExtResource("7_1u0lb")])
 
 [node name="health_component" parent="." instance=ExtResource("7_acm42")]
 

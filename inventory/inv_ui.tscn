@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfxlkdnppxv1n"]
+[gd_scene load_steps=5 format=3 uid="uid://dfxlkdnppxv1n"]
 
 [ext_resource type="Script" path="res://scripts/ui/inv_ui.gd" id="1_efp3q"]
+[ext_resource type="Resource" uid="uid://cyina1yvxjbji" path="res://inventory/player_data.tres" id="2_5n5hf"]
 [ext_resource type="Texture2D" uid="uid://ci887hwdsjnw" path="res://ui/imgs/ui_inventory.png" id="2_uvquu"]
 [ext_resource type="PackedScene" uid="uid://dk103wdpc54an" path="res://inventory/inventory_slot.tscn" id="3_x5u02"]
 
@@ -10,6 +11,7 @@ layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_efp3q")
+playerdata = ExtResource("2_5n5hf")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0

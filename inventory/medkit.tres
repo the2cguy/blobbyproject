@@ -7,3 +7,4 @@
 script = ExtResource("1_ae4jf")
 name = "medkit"
 texture = ExtResource("2_xow8r")
+is_weapon = false
