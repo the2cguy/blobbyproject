@@ -1,8 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://ehw7r0okjnko"]
+[gd_scene load_steps=18 format=3 uid="uid://ehw7r0okjnko"]
 
+[ext_resource type="Shader" path="res://models/hurt.gdshader" id="1_6cdng"]
 [ext_resource type="Script" path="res://scripts/enemy_ai/wolf.gd" id="1_ga0xj"]
 [ext_resource type="Texture2D" uid="uid://c56n0a7aixgqm" path="res://pixilart-drawing.png" id="2_tv55k"]
 [ext_resource type="PackedScene" uid="uid://dmm6ogo1u2fpq" path="res://models/components/health_component.tscn" id="3_65see"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wkxxw"]
+shader = ExtResource("1_6cdng")
+shader_parameter/flash_state = 0.0
+shader_parameter/color = Color(1, 0, 0, 1)
 
 [sub_resource type="Gradient" id="Gradient_g4atl"]
 offsets = PackedFloat32Array(0.382979, 1)
@@ -39,58 +45,32 @@ radius = 107.0
 
 [sub_resource type="Animation" id="Animation_dxxqd"]
 length = 0.001
-tracks/0/type = "value"
+tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_state")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_l21mv"]
 resource_name = "hurt"
 length = 0.5
 step = 0.05
-tracks/0/type = "value"
+tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_state")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.35, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(5.389, 0.5, 0.5, 1), Color(1, 1, 1, 1), Color(5.389, 0.5, 0.5, 1), Color(1, 1, 1, 1)]
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.15, 0.25, 0.4, 0.5)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lvke5"]
@@ -125,6 +105,7 @@ knockback_multiplier = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_wkxxw")
 position = Vector2(-7, 0)
 texture = ExtResource("2_tv55k")
 
@@ -138,16 +119,19 @@ one_shot = true
 explosiveness = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_0vfma")
 
 [node name="attack_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area"]
+visible = false
 shape = SubResource("CircleShape2D_45xn8")
 
 [node name="detect_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detect_area"]
+visible = false
 shape = SubResource("CircleShape2D_wb7kj")
 
 [node name="health_component" parent="." instance=ExtResource("3_65see")]

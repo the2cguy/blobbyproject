@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://vo2fyqnekglt"]
+
+[ext_resource type="Script" path="res://models/truck.gd" id="1_k3as4"]
+[ext_resource type="Texture2D" uid="uid://cddndbx6x84t8" path="res://icon.svg" id="1_vmrl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fos7i"]
+
+[node name="truck" type="CharacterBody2D"]
+script = ExtResource("1_k3as4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(-2, 0)
+scale = Vector2(1.5, 0.75)
+texture = ExtResource("1_vmrl0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 65)
+shape = SubResource("RectangleShape2D_fos7i")
+
+[node name="blobby_seat" type="Marker2D" parent="."]
+position = Vector2(-56, -23)

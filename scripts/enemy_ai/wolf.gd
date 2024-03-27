@@ -63,6 +63,7 @@ func _ready() -> void:
 	player_location_timer.wait_time = 0.70
 	add_child(player_location_timer)
 	player_location_timer.timeout.connect(set_player_location)
+	$Sprite2D.material = $Sprite2D.material.duplicate()
 	
 func knockbackFunc(direction:Vector2):
 	knockback = direction.normalized() * 100

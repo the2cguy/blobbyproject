@@ -14,3 +14,7 @@ res://scripts/enemy_ai/wolf.gd
 res://scripts/ui/help_labels.gd
 res://ui/help_labels/help_inv.tscn
 res://ui/help_inv.tscn
+res://models/hurt.gdshader
+res://models/truck.tscn
+res://models/truck.gd
+res://scripts/model_player.gd
