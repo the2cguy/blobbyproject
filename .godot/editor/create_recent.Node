@@ -1,13 +1,13 @@
+ColorRect
+Panel
 AnimationPlayer
 TextureRect
 AnimationTree
 Label
-ColorRect
 Sprite2D
 CollisionShape2D
 Area2D
 StaticBody2D
-Panel
 CenterContainer
 HBoxContainer
 NinePatchRect

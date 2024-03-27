@@ -81,24 +81,33 @@ func avoidance_force() -> Vector2:
 
 func _physics_process(delta: float) -> void:
 	
-	# If enemy is AWARE then moves toward the player.
 	if state.idle():
+		# Check for player in overlapping bodies
 		for i in detect_player.get_overlapping_bodies():
+			# If body is player, then set Player to it's body and start tracking player, If player in sight, AWARE.
 			if i.name == "model_player":
 				Player = i
 				if player_location_timer.is_stopped(): player_location_timer.start()
 				if detect_LOS():
 					state.set_state("aware")
+		# If enemy is IDLE roam around to roam direction
 		velocity = velocity.move_toward(Vector2.RIGHT.rotated(roam_direction) * 40, delta * 40)
+	# If enemy is AWARE then moves toward the player.
 	if state.aware():
 		var MAXSPEED = 50
 		#print("muahahadwdwdwdwdwdw")
 		var steering:Vector2 = Vector2.ZERO
 		steering += seek_steering()
 		steering = steering.clamp(Vector2(-MAXSPEED, -MAXSPEED), Vector2(MAXSPEED, MAXSPEED))
+		if steering.x > 0:
+			$Sprite2D.flip_h = true
+		else:
+			$Sprite2D.flip_h = false
 		steering += knockback
 		knockback *= 0.92
 		velocity += steering
+		# If heading right then flip sprite
+			
 		#velocity = velocity.clamp(Vector2(-MAXSPEED, -MAXSPEED), Vector2(MAXSPEED, MAXSPEED))
 		$gizmo_player.look_at(Global.player.global_position)	
 		$gizmo_player.rotate(deg_to_rad(45))

@@ -1,5 +1,6 @@
+res://scripts/ui
+res://ui/help_labels
 res://inventory/
 res://scripts
 res://scripts/inventory/collectibles
 res://inventory/collectibles
-res://scripts/ui

@@ -375,6 +375,10 @@ seedidk = 5615
 [node name="ammo_text" parent="CanvasLayer/main_hud" index="2" node_paths=PackedStringArray("weapon")]
 weapon = NodePath("../../../model_player/weapon")
 
+[node name="inv_ui" parent="CanvasLayer/main_hud" index="10"]
+offset_left = 1940.0
+offset_right = 2068.0
+
 [node name="enemy" parent="." instance=ExtResource("12_y1ako")]
 z_index = 11
 position = Vector2(10, -1732)
@@ -441,3 +445,4 @@ position = Vector2(452, -1513)
 [editable path="model_player"]
 [editable path="model_player/weapon"]
 [editable path="CanvasLayer/main_hud"]
+[editable path="CanvasLayer/main_hud/inv_ui"]

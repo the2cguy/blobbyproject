@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://ehw7r0okjnko"]
 
 [ext_resource type="Script" path="res://scripts/enemy_ai/wolf.gd" id="1_ga0xj"]
-[ext_resource type="Texture2D" uid="uid://cbobqb6x4lohd" path="res://sprites/pixilart-drawing.png" id="2_tv55k"]
+[ext_resource type="Texture2D" uid="uid://cbobqb6x4lohd" path="res://sprites/wolf.png" id="2_tv55k"]
 [ext_resource type="PackedScene" uid="uid://dmm6ogo1u2fpq" path="res://models/components/health_component.tscn" id="3_65see"]
 
 [sub_resource type="Gradient" id="Gradient_g4atl"]
@@ -28,8 +28,8 @@ color = Color(0.545098, 0.886275, 1, 1)
 color_ramp = SubResource("GradientTexture1D_gww4a")
 anim_speed_max = 4.2
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ppqrq"]
-radius = 9.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vfma"]
+radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_45xn8"]
 radius = 36.0139
@@ -138,7 +138,7 @@ one_shot = true
 explosiveness = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ppqrq")
+shape = SubResource("CapsuleShape2D_0vfma")
 
 [node name="attack_area" type="Area2D" parent="."]
 
