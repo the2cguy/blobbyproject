@@ -44,6 +44,10 @@ func _process(delta):
 		amount -= 1 * delta
 	if Input.is_action_just_pressed("next"):
 		navreg.bake_navigation_polygon(true)
+	if freeze_movement:
+		$Camera2D.drag_horizontal_enabled = false
+		$Camera2D.drag_vertical_enabled = false
+
 func _on_health_component_damage_incoming() -> void:
 	if stun_time.is_stopped():
 		stun_time.start()

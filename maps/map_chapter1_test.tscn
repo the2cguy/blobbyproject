@@ -440,7 +440,7 @@ position = Vector2(478, -1449)
 position = Vector2(452, -1513)
 
 [node name="truck" parent="." instance=ExtResource("17_cbftx")]
-position = Vector2(-68, -2381)
+position = Vector2(625, -2381)
 
 [editable path="model_player"]
 [editable path="model_player/weapon"]

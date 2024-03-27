@@ -1,9 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1711535552
+::res://::1711537615
 export_presets.cfg::TextFile::-1::1711444199::0::1::::<><>::
 icon.svg::CompressedTexture2D::4990395799344574131::1711444199::1711445746::1::::<><>::
-pixilart-drawing.png::CompressedTexture2D::7849631693136218889::1711444199::1711445746::1::::<><>::
+pixilart-drawing.png::CompressedTexture2D::6943336402101956604::1711444199::1711537164::1::::<><>::
 README.md::TextFile::-1::1711467086::0::1::::<><>::
+panel.tscn::PackedScene::4052091632532870588::1711537615::0::1::::<><>::
 ::res://addons/::1711464029
 ::res://addons/godot-git-plugin/::1711464030
 git_plugin.gdextension::GDExtension::-1::1711464029::0::1::::<><>::
@@ -15,66 +16,69 @@ THIRDPARTY.md::TextFile::-1::1711464030::0::1::::<><>::
 ::res://class/::1711444199
 weapon_object.gd::GDScript::-1::1711444199::0::1::::weaponObject<>Node2D<>::
 weapon_object.tscn::PackedScene::4372778968922407973::1711444199::0::1::::<><>::res://class/weapon_object.gd
-::res://inventory/::1711534862
-inventory_slot.tscn::PackedScene::7916393396947212977::1711534862::0::1::::<><>::uid://hy7f7ljeo8os::::res://ui/imgs/ui_inventory_slot.png<>res://scripts/ui/inventory_slot.gd<>uid://fiarpo6rw8ir::::res://ui/imgs/gun icon.png
-inv_ui.tscn::PackedScene::7558372880827333405::1711534862::0::1::::<><>::res://scripts/ui/inv_ui.gd<>uid://cyina1yvxjbji::::res://inventory/player_data.tres<>uid://ci887hwdsjnw::::res://ui/imgs/ui_inventory.png<>uid://dk103wdpc54an::::res://inventory/inventory_slot.tscn
-medkit.tres::Resource/InvItem::6277221496384185053::1711533335::0::1::::<><>::res://scripts/inventory/item.gd<>uid://fiarpo6rw8ir::::res://ui/imgs/gun icon.png
+::res://inventory/::1711541620
+inventory_slot.tscn::PackedScene::7916393396947212977::1711541620::0::1::::<><>::uid://hy7f7ljeo8os::::res://ui/imgs/ui_inventory_slot.png<>res://scripts/ui/inventory_slot.gd<>uid://fiarpo6rw8ir::::res://ui/imgs/gun icon.png
+inv_ui.tscn::PackedScene::7558372880827333405::1711541620::0::1::::<><>::res://scripts/ui/inv_ui.gd<>uid://cyina1yvxjbji::::res://inventory/player_data.tres<>uid://ci887hwdsjnw::::res://ui/imgs/ui_inventory.png<>uid://dk103wdpc54an::::res://inventory/inventory_slot.tscn
+medkit.tres::Resource/InvItem::6277221496384185053::1711535577::0::1::::<><>::res://scripts/inventory/item.gd<>uid://fiarpo6rw8ir::::res://ui/imgs/gun icon.png
 player_data.tres::Resource/Resource::6474679361305066134::1711465540::0::1::::<><>::res://scripts/playerdata.gd
-player_inventory.tres::Resource/Inv::1239922357345571124::1711533335::0::1::::<><>::res://scripts/inventory/inventory.gd<>res://scripts/ui/Inv_slot.gd
-::res://inventory/collectibles/::1711534862
-blitz34_collectible.tscn::PackedScene::5569430578080605424::1711534862::0::1::::<><>::res://scripts/inventory/collectibles/blitz34_collectible.gd<>uid://rv68dodfrn3e::::res://inventory/weapons/blitz34.tres<>uid://fiarpo6rw8ir::::res://ui/imgs/gun icon.png
-medkit_collectible.tscn::PackedScene::5015556206933331683::1711534862::0::1::::<><>::res://scripts/inventory/collectibles/medkit_collectible.gd<>uid://cvoy6kukp1hb6::::res://inventory/medkit.tres<>uid://fiarpo6rw8ir::::res://ui/imgs/gun icon.png
+player_inventory.tres::Resource/Inv::1239922357345571124::1711535577::0::1::::<><>::res://scripts/inventory/inventory.gd<>res://scripts/ui/Inv_slot.gd
+::res://inventory/collectibles/::1711541620
+blitz34_collectible.tscn::PackedScene::5569430578080605424::1711541620::0::1::::<><>::res://scripts/inventory/collectibles/blitz34_collectible.gd<>uid://rv68dodfrn3e::::res://inventory/weapons/blitz34.tres<>uid://fiarpo6rw8ir::::res://ui/imgs/gun icon.png
+medkit_collectible.tscn::PackedScene::5015556206933331683::1711541620::0::1::::<><>::res://scripts/inventory/collectibles/medkit_collectible.gd<>uid://cvoy6kukp1hb6::::res://inventory/medkit.tres<>uid://fiarpo6rw8ir::::res://ui/imgs/gun icon.png
 ::res://inventory/icons/::1711445746
 auto.png::CompressedTexture2D::4932032819250245181::1711444199::1711445746::1::::<><>::
 gun_icon-v2.png::CompressedTexture2D::5581772593928573703::1711444199::1711445746::1::::<><>::
 semiauto.png::CompressedTexture2D::8607330034873559993::1711444199::1711445746::1::::<><>::
-::res://inventory/weapons/::1711533335
-blitz34.tres::Resource/InvItem::1238503611997412136::1711533335::0::1::::<><>::res://scripts/inventory/item.gd<>res://scripts/weaponItem.gd<>uid://fiarpo6rw8ir::::res://ui/imgs/gun icon.png
+::res://inventory/weapons/::1711535577
+blitz34.tres::Resource/InvItem::1238503611997412136::1711535577::0::1::::<><>::res://scripts/inventory/item.gd<>res://scripts/weaponItem.gd<>uid://fiarpo6rw8ir::::res://ui/imgs/gun icon.png
 stick.tres::Resource/Resource::6616098141474814132::1711444199::0::1::::<><>::res://scripts/weaponItem.gd
 zk2_gen3.tres::Resource/Resource::5283057061756195416::1711444199::0::1::::<><>::res://scripts/weaponItem.gd
-::res://maps/::1711534861
-map_chapter1_test.tscn::PackedScene::5327636505358646809::1711534861::0::1::::<><>::uid://d25or1vcbdalh::::res://models/model_player.tscn<>uid://d17yg6x224r20::::res://tileset/snowroad.png<>uid://rwvlteer80fo::::res://inventory/player_inventory.tres<>uid://dydcge6422ky7::::res://tileset/houseandsteps.png<>uid://c3u4gdsjjs17t::::res://tileset/background_snow.png<>uid://ckyhcg3gpl23q::::res://tileset/dirt-v2.png<>uid://10h3xwl65b1e::::res://tileset/ice.png<>uid://7vc71hj8mcjb::::res://models/components/procedural_map.tscn<>uid://2wyn2b68y11n::::res://tileset/pine_trees.png<>uid://cee7omdbwiski::::res://ui/main_hud.tscn<>uid://bg7723g0vv3se::::res://tileset/fence_sign.png<>uid://dp3n4di67m5bo::::res://tileset/road.png<>uid://ehw7r0okjnko::::res://models/wolves.tscn<>uid://ca4ppct1jbkr3::::res://tileset/house-v2.png<>uid://cdptqirg17c64::::res://inventory/collectibles/medkit_collectible.tscn<>uid://cll4ycl775rsy::::res://inventory/collectibles/blitz34_collectible.tscn
-::res://models/::1711534862
+::res://maps/::1711541621
+map_chapter1_test.tscn::PackedScene::5327636505358646809::1711541621::0::1::::<><>::uid://d25or1vcbdalh::::res://models/model_player.tscn<>uid://d17yg6x224r20::::res://tileset/snowroad.png<>uid://rwvlteer80fo::::res://inventory/player_inventory.tres<>uid://dydcge6422ky7::::res://tileset/houseandsteps.png<>uid://c3u4gdsjjs17t::::res://tileset/background_snow.png<>uid://ckyhcg3gpl23q::::res://tileset/dirt-v2.png<>uid://10h3xwl65b1e::::res://tileset/ice.png<>uid://7vc71hj8mcjb::::res://models/components/procedural_map.tscn<>uid://2wyn2b68y11n::::res://tileset/pine_trees.png<>uid://cee7omdbwiski::::res://ui/main_hud.tscn<>uid://bg7723g0vv3se::::res://tileset/fence_sign.png<>uid://dp3n4di67m5bo::::res://tileset/road.png<>uid://ehw7r0okjnko::::res://models/wolves.tscn<>uid://ca4ppct1jbkr3::::res://tileset/house-v2.png<>uid://cdptqirg17c64::::res://inventory/collectibles/medkit_collectible.tscn<>uid://cll4ycl775rsy::::res://inventory/collectibles/blitz34_collectible.tscn<>uid://vo2fyqnekglt::::res://models/truck.tscn
+::res://models/::1711541621
 health_component.gd::GDScript::-1::1711444199::0::1::::<>Node2D<>::
 model_default_bullet.tscn::PackedScene::7950538744135788022::1711444199::0::1::::<><>::res://scripts/model_default_bullet.gd<>uid://cq8s25hybxn0g::::res://sprites/weapons/bullet.png
-model_player.tscn::PackedScene::9117173956463406501::1711534862::0::1::::<><>::res://scripts/model_player.gd<>uid://b8qn2j4mqh81e::::res://sprites/blobby-v3.png<>uid://rwvlteer80fo::::res://inventory/player_inventory.tres<>uid://cew0rw5er5lwe::::res://models/weapon.tscn<>res://scripts/inventory_component.gd<>uid://cyina1yvxjbji::::res://inventory/player_data.tres<>uid://dmm6ogo1u2fpq::::res://models/components/health_component.tscn
+model_player.tscn::PackedScene::9117173956463406501::1711541620::0::1::::<><>::res://scripts/model_player.gd<>uid://b8qn2j4mqh81e::::res://sprites/blobby-v3.png<>uid://rwvlteer80fo::::res://inventory/player_inventory.tres<>uid://cew0rw5er5lwe::::res://models/weapon.tscn<>res://scripts/inventory_component.gd<>uid://cyina1yvxjbji::::res://inventory/player_data.tres<>uid://dmm6ogo1u2fpq::::res://models/components/health_component.tscn
+hurt.gdshader::Shader::-1::1711541621::0::1::::<><>::
+truck.gd::GDScript::-1::1711541308::0::1::::<>CharacterBody2D<>::
+truck.tscn::PackedScene::1504516578603416273::1711541621::0::1::::<><>::res://models/truck.gd<>uid://cddndbx6x84t8::::res://icon.svg
 weapon.tscn::PackedScene::5100562537906679196::1711444199::0::1::::<><>::res://scripts/weapon.gd<>uid://cm8uowf5x1wjp::::res://sprites/weapons/blitz34/blitz34-v4.png<>uid://dwql531q3s6gu::::res://sprites/weapons/zk2_gen3/zk2_gen3-v2.png<>uid://1150b602ifk4::::res://sprites/weapons/stick/stick.png<>uid://cddndbx6x84t8::::res://icon.svg
-wolves.tscn::PackedScene::296599870243258110::1711534862::0::1::::<><>::res://scripts/enemy_ai/wolf.gd<>uid://cbobqb6x4lohd::::res://sprites/wolf.png<>uid://dmm6ogo1u2fpq::::res://models/components/health_component.tscn
+wolves.tscn::PackedScene::296599870243258110::1711541621::0::1::::<><>::res://models/hurt.gdshader<>res://scripts/enemy_ai/wolf.gd<>uid://c56n0a7aixgqm::::res://pixilart-drawing.png<>uid://dmm6ogo1u2fpq::::res://models/components/health_component.tscn
 ::res://models/components/::1711444199
 health_component.tscn::PackedScene::8028208273651315962::1711444199::0::1::::<><>::res://models/health_component.gd
 procedural_map.tscn::PackedScene::2289574885517008011::1711444199::0::1::::<><>::res://scripts/procedural_map.gd
-::res://scripts/::1711467584
+::res://scripts/::1711541620
 global.gd::GDScript::-1::1711467535::0::1::::<>Node<>::
 inventory_component.gd::GDScript::-1::1711447766::0::1::::<>Node2D<>::
 model_default_bullet.gd::GDScript::-1::1711444199::0::1::::<>Area2D<>::
-model_player.gd::GDScript::-1::1711467560::0::1::::<>CharacterBody2D<>::
+model_player.gd::GDScript::-1::1711541620::0::1::::<>CharacterBody2D<>::
 playerdata.gd::GDScript::-1::1711465502::0::1::::PlayerData<>Resource<>::
 procedural_map.gd::GDScript::-1::1711467519::0::1::::<>Node2D<>::
 weapon.gd::GDScript::-1::1711467584::0::1::::<>Node2D<>::
 weaponItem.gd::GDScript::-1::1711444199::0::1::::weaponItem<>Resource<>::
-::res://scripts/enemy_ai/::1711534861
-wolf.gd::GDScript::-1::1711534861::0::1::::<>CharacterBody2D<>::
+::res://scripts/enemy_ai/::1711539392
+wolf.gd::GDScript::-1::1711539392::0::1::::<>CharacterBody2D<>::
 ::res://scripts/inventory/::1711467357
 inventory.gd::GDScript::-1::1711467357::0::1::::Inv<>Resource<>::
 item.gd::GDScript::-1::1711460552::0::1::::InvItem<>Resource<>::
 ::res://scripts/inventory/collectibles/::1711461547
 blitz34_collectible.gd::GDScript::-1::1711461547::0::1::::<>StaticBody2D<>::
 medkit_collectible.gd::GDScript::-1::1711452019::0::1::::<>StaticBody2D<>::
-::res://scripts/ui/::1711534230
+::res://scripts/ui/::1711537782
 ammo_text.gd::GDScript::-1::1711461845::0::1::::<>Label<>::
 crosshair.gd::GDScript::-1::1711466391::0::1::::<>TextureRect<>::
 health_text.gd::GDScript::-1::1711444199::0::1::::<>Label<>::
 inventory_slot.gd::GDScript::-1::1711465899::0::1::::<>Panel<>::
 Inv_slot.gd::GDScript::-1::1711451067::0::1::::InvSlot<>Resource<>::
-inv_ui.gd::GDScript::-1::1711534230::0::1::::<>Control<>::
+inv_ui.gd::GDScript::-1::1711536987::0::1::::<>Control<>::
 items_btn.gd::GDScript::-1::1711444199::0::1::::<>TextureRect<>::
 reload_progress.gd::GDScript::-1::1711461876::0::1::::<>ProgressBar<>::
-::res://sprites/::1711534726
+help_labels.gd::GDScript::-1::1711537782::0::1::::<>ColorRect<>::
+::res://sprites/::1711536987
 blobby-v3.png::CompressedTexture2D::4736520623230922356::1711444199::1711445746::1::::<><>::
 blobby_pixel_0001.png::CompressedTexture2D::1170308777624059135::1711444199::1711445746::1::::<><>::
 blobby_pixel_0002.png::CompressedTexture2D::6742408904096476333::1711444199::1711445746::1::::<><>::
 stick.png::CompressedTexture2D::1630669422006214596::1711444199::1711445746::1::::<><>::
-wolf.png::CompressedTexture2D::4872020890772820465::1711444199::1711534726::1::::<><>::
 ::res://sprites/weapons/::1711445746
 bullet.png::CompressedTexture2D::5965130041390763028::1711444199::1711445746::1::::<><>::
 ::res://sprites/weapons/blitz34/::1711445746
@@ -95,13 +99,14 @@ pine_trees.png::CompressedTexture2D::1941996933092178009::1711444199::1711445746
 road.png::CompressedTexture2D::8270738563072921704::1711444199::1711445746::1::::<><>::
 snowroad.png::CompressedTexture2D::9051701661406236459::1711444199::1711445746::1::::<><>::
 tileset_dirt.png::CompressedTexture2D::1034999018485671046::1711444199::1711445746::1::::<><>::
-::res://ui/::1711534862
+::res://ui/::1711541621
 items_btn.tscn::PackedScene::5947053156049663238::1711444199::0::1::::<><>::uid://da55ebi7pgrcs::::res://ui/theme/inventory.tres<>uid://bdcdo41s1kn2c::::res://ui/imgs/button.png<>res://scripts/ui/items_btn.gd
-main_hud.tscn::PackedScene::5063822832827551524::1711534862::0::1::::<><>::uid://bplgfffgs078u::::res://ui/imgs/crosshair_default.png<>res://scripts/ui/crosshair.gd<>uid://bl685hg3rhnob::::res://ui/imgs/gun_ui_info.png<>uid://do317wk6vp23l::::res://ui/fonts/superstar_memesbruh03.ttf<>res://scripts/ui/ammo_text.gd<>res://scripts/ui/reload_progress.gd<>uid://pii3d3a64xoa::::res://ui/imgs/reloadicon.png<>uid://b00mjr26nt6sf::::res://ui/imgs/health_icon_ui.png<>res://scripts/ui/health_text.gd<>uid://dfxlkdnppxv1n::::res://inventory/inv_ui.tscn
+main_hud.tscn::PackedScene::5063822832827551524::1711541621::0::1::::<><>::uid://bplgfffgs078u::::res://ui/imgs/crosshair_default.png<>res://scripts/ui/crosshair.gd<>uid://bl685hg3rhnob::::res://ui/imgs/gun_ui_info.png<>uid://do317wk6vp23l::::res://ui/fonts/superstar_memesbruh03.ttf<>res://scripts/ui/ammo_text.gd<>res://scripts/ui/reload_progress.gd<>uid://pii3d3a64xoa::::res://ui/imgs/reloadicon.png<>uid://b00mjr26nt6sf::::res://ui/imgs/health_icon_ui.png<>res://scripts/ui/health_text.gd<>res://scripts/ui/help_labels.gd<>uid://dfxlkdnppxv1n::::res://inventory/inv_ui.tscn<>uid://b3o3tcrn3co2o::::res://ui/help_inv.tscn
+help_inv.tscn::PackedScene::4382343731933047692::1711541620::0::1::::<><>::uid://do317wk6vp23l::::res://ui/fonts/superstar_memesbruh03.ttf
 ::res://ui/fonts/::1711445746
 screaming_neon.ttf::FontFile::2900584458952404802::1711444199::1711445746::1::::<><>::
 superstar_memesbruh03.ttf::FontFile::8201345398741245271::1711444199::1711445746::1::::<><>::
-::res://ui/imgs/::1711452970
+::res://ui/imgs/::1711542289
 button.png::CompressedTexture2D::2601324686403346044::1711444199::1711445746::1::::<><>::
 button_hover.png::CompressedTexture2D::1050067529134802763::1711444199::1711445746::1::::<><>::
 crosshair.png::CompressedTexture2D::1362393846318383861::1711444199::1711445746::1::::<><>::
@@ -111,8 +116,9 @@ gun_ui_info.png::CompressedTexture2D::3224551286893228249::1711444199::171144574
 health_icon_ui.png::CompressedTexture2D::4193496830587072109::1711444199::1711445746::1::::<><>::
 interact.png::CompressedTexture2D::8727035132590718124::1711444199::1711445746::1::::<><>::
 reloadicon.png::CompressedTexture2D::1069883615641600144::1711444199::1711445746::1::::<><>::
+ui_floating_key.png::CompressedTexture2D::5671474734221005973::1711542289::1711542289::1::::<><>::
 ui_inventory.png::CompressedTexture2D::158956993833840052::1711452955::1711447396::1::::<><>::
 ui_inventory_slot.png::CompressedTexture2D::542820542456618882::1711448717::1711448717::1::::<><>::
 ui_inventory_slot_selected.png::CompressedTexture2D::6769306294822275603::1711452970::1711452970::1::::<><>::
-::res://ui/theme/::1711533335
-inventory.tres::Theme::7223022103015729594::1711533335::0::1::::<><>::uid://bdcdo41s1kn2c::::res://ui/imgs/button.png<>uid://o7wpumhahs8j::::res://ui/imgs/button_hover.png<>uid://bhlcg42s8qp1c::::res://ui/fonts/screaming_neon.ttf<>uid://do317wk6vp23l::::res://ui/fonts/superstar_memesbruh03.ttf
+::res://ui/theme/::1711535577
+inventory.tres::Theme::7223022103015729594::1711535577::0::1::::<><>::uid://bdcdo41s1kn2c::::res://ui/imgs/button.png<>uid://o7wpumhahs8j::::res://ui/imgs/button_hover.png<>uid://bhlcg42s8qp1c::::res://ui/fonts/screaming_neon.ttf<>uid://do317wk6vp23l::::res://ui/fonts/superstar_memesbruh03.ttf

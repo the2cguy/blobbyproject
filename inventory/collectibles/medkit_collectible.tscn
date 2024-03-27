@@ -20,3 +20,4 @@ shape = SubResource("CircleShape2D_1gfkx")
 texture = ExtResource("3_miqi2")
 
 [connection signal="body_entered" from="collectible_detect" to="." method="_on_collectible_detect_body_entered"]
+[connection signal="body_exited" from="collectible_detect" to="." method="_on_collectible_detect_body_exited"]

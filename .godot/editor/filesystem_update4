@@ -18,3 +18,8 @@ res://models/hurt.gdshader
 res://models/truck.tscn
 res://models/truck.gd
 res://scripts/model_player.gd
+res://ui/ui_floating_key.tscn
+res://scripts/inventory/collectibles/medkit_collectible.gd
+res://scripts/ui/crosshair.gd
+res://scripts/global.gd
+res://scripts/inventory/collectibles/blitz34_collectible.gd

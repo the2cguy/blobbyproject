@@ -1,3 +1,6 @@
+Label
+NinePatchRect
+Control
 Marker2D
 CollisionShape2D
 Area2D
@@ -7,9 +10,5 @@ Panel
 AnimationPlayer
 TextureRect
 AnimationTree
-Label
 Sprite2D
 StaticBody2D
-CenterContainer
-HBoxContainer
-NinePatchRect

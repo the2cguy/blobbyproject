@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqvvi64fknwaf"]
+
+[ext_resource type="Texture2D" uid="uid://cm2kmipwemmjt" path="res://ui/imgs/ui_floating_key.png" id="1_30ll5"]
+[ext_resource type="FontFile" uid="uid://do317wk6vp23l" path="res://ui/fonts/superstar_memesbruh03.ttf" id="2_o5lbe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mkm1e"]
+font = ExtResource("2_o5lbe")
+font_size = 19
+font_color = Color(0.125536, 0.082063, 0.199802, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i45hc"]
+font = ExtResource("2_o5lbe")
+font_size = 19
+
+[node name="ui_floating_key" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 31.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_30ll5")
+patch_margin_left = 21
+patch_margin_right = 6
+axis_stretch_vertical = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 16.0
+offset_right = 50.0
+offset_bottom = 48.0
+text = "E"
+label_settings = SubResource("LabelSettings_mkm1e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 16.0
+offset_right = 116.0
+offset_bottom = 48.0
+text = "pick up"
+label_settings = SubResource("LabelSettings_i45hc")
+horizontal_alignment = 1
+vertical_alignment = 1

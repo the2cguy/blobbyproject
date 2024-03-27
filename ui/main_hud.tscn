@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cee7omdbwiski"]
+[gd_scene load_steps=30 format=3 uid="uid://cee7omdbwiski"]
 
 [ext_resource type="Texture2D" uid="uid://bplgfffgs078u" path="res://ui/imgs/crosshair_default.png" id="1_kfkct"]
 [ext_resource type="Script" path="res://scripts/ui/crosshair.gd" id="2_jcp26"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/ui/help_labels.gd" id="10_7oyg4"]
 [ext_resource type="PackedScene" uid="uid://dfxlkdnppxv1n" path="res://inventory/inv_ui.tscn" id="10_ep4ip"]
 [ext_resource type="PackedScene" uid="uid://b3o3tcrn3co2o" path="res://ui/help_inv.tscn" id="11_7tuck"]
+[ext_resource type="PackedScene" uid="uid://dqvvi64fknwaf" path="res://ui/ui_floating_key.tscn" id="13_pbthi"]
 
 [sub_resource type="Animation" id="Animation_myw14"]
 length = 0.001
@@ -593,5 +594,13 @@ libraries = {
 "": SubResource("AnimationLibrary_6w7vr")
 }
 speed_scale = 2.0
+
+[node name="ui_floating_key" parent="." instance=ExtResource("13_pbthi")]
+visible = false
+offset_left = 472.0
+offset_top = 64.0
+offset_right = 512.0
+offset_bottom = 104.0
+scale = Vector2(1.56568, 1.56568)
 
 [editable path="inv_ui"]
