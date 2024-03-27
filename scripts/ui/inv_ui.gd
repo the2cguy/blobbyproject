@@ -16,10 +16,11 @@ func select_slot(id:int):
 	slots[id].select()
 	print("ID:", id)
 	for i in len(slots):
-		if i != playerdata.weaponid:
+		if i != playerdata.weaponid and slots[i].is_hover != false:
 			slots[i].unselect()
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("inventory"):
+	visible = true
+	if Input.is_action_just_pressed("inventory") and not $AnimationPlayer.is_playing():
 		if is_open:
 			close()
 		else:
@@ -27,9 +28,9 @@ func _process(delta: float) -> void:
 	if !slots[playerdata.weaponid].is_hover:
 		select_slot(playerdata.weaponid)
 func open():
+	if !$AnimationPlayer.is_playing():$AnimationPlayer.play("open")
 	is_open = true
-	visible = true
 	
 func close():
+	if !$AnimationPlayer.is_playing():$AnimationPlayer.play("closes")
 	is_open = false
-	visible = false
