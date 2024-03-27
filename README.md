@@ -28,4 +28,5 @@ Notion link: https://mixolydian-pocket-35b.notion.site/Blobby-Game-Project-c6438
     - Helps with tilemap & navmesh problem
 ### Youtube Tutorial Channels
 - DevWorm (https://www.youtube.com/@dev-worm/), check his channel!
-
+- PlayWithFurcifer (https://www.youtube.com/@PlayWithFurcifer) 
+    - Flash effect for enemy. https://www.youtube.com/watch?v=1pJyYtBAHks&pp=ygUPZ29kb3QgMmQgc2hhZGVy
