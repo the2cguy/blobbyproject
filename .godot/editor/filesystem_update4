@@ -13,3 +13,4 @@ res://models/wolves.tscn
 res://scripts/enemy_ai/wolf.gd
 res://scripts/ui/help_labels.gd
 res://ui/help_labels/help_inv.tscn
+res://ui/help_inv.tscn

@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://ehw7r0okjnko"]
 
 [ext_resource type="Script" path="res://scripts/enemy_ai/wolf.gd" id="1_ga0xj"]
-[ext_resource type="Texture2D" uid="uid://cbobqb6x4lohd" path="res://sprites/wolf.png" id="2_tv55k"]
+[ext_resource type="Texture2D" uid="uid://c56n0a7aixgqm" path="res://pixilart-drawing.png" id="2_tv55k"]
 [ext_resource type="PackedScene" uid="uid://dmm6ogo1u2fpq" path="res://models/components/health_component.tscn" id="3_65see"]
 
 [sub_resource type="Gradient" id="Gradient_g4atl"]
