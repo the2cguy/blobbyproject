@@ -1,5 +1,6 @@
 # A game project with my friends, Blobby Project
-![image](https://github.com/the2cguy/blobbyproject/assets/162902917/0f1fa40f-e673-4c93-9caf-c37bfc9f4e62)
+![image](https://github.com/the2cguy/blobbyproject/assets/162902917/88071ed1-aa26-41b9-b248-0cd2cdc5a54d)
+
 
 
 Blobby tells a story of an anthropomorphic animals being experimented and then killed by a rogue company called AARI, Blobby is an anthropomorphic whale whose his father was killed by the AARI.
