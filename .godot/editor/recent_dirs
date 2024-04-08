@@ -1,5 +1,7 @@
-res://ui
 res://models
+res://scripts/enemy_ai
+res://sprites/shadows
+res://ui
 res://maps
 res://
 res://scripts/ui

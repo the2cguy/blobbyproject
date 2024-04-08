@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://dsjpal88fyq57"]
+
+[ext_resource type="Script" path="res://scripts/enemy_ai/shadows_enemy.gd" id="1_fqaec"]
+[ext_resource type="PackedScene" uid="uid://b3f1fov5pfcgx" path="res://models/taser.tscn" id="2_6336w"]
+[ext_resource type="Texture2D" uid="uid://cvrm2h2gnb5pj" path="res://sprites/shadows/shadows_idle.png" id="2_iygl7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6ngg"]
+atlas = ExtResource("2_iygl7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blqp7"]
+atlas = ExtResource("2_iygl7")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knst2"]
+atlas = ExtResource("2_iygl7")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuwrj"]
+atlas = ExtResource("2_iygl7")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nwno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6ngg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blqp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knst2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuwrj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fatmr"]
+size = Vector2(9, 24.5)
+
+[node name="ShadowsEnemy" type="CharacterBody2D"]
+script = ExtResource("1_fqaec")
+speed = 100.0
+
+[node name="Taser" parent="." instance=ExtResource("2_6336w")]
+position = Vector2(1, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6nwno")
+animation = &"idle"
+frame_progress = 0.31941
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1.25)
+shape = SubResource("RectangleShape2D_fatmr")

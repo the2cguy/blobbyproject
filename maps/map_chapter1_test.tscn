@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ch50nop2obxfl"]
+[gd_scene load_steps=30 format=3 uid="uid://ch50nop2obxfl"]
 
 [ext_resource type="PackedScene" uid="uid://d25or1vcbdalh" path="res://models/model_player.tscn" id="1_h5upq"]
 [ext_resource type="Texture2D" uid="uid://d17yg6x224r20" path="res://tileset/snowroad.png" id="2_03kl8"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cdptqirg17c64" path="res://inventory/collectibles/medkit_collectible.tscn" id="15_l5bbt"]
 [ext_resource type="PackedScene" uid="uid://cll4ycl775rsy" path="res://inventory/collectibles/blitz34_collectible.tscn" id="16_8rylt"]
 [ext_resource type="PackedScene" uid="uid://vo2fyqnekglt" path="res://models/truck.tscn" id="17_cbftx"]
+[ext_resource type="PackedScene" uid="uid://dsjpal88fyq57" path="res://models/shadows_enemy.tscn" id="18_ks3ag"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w2183"]
 outlines = Array[PackedVector2Array]([PackedVector2Array(-2204, -2604, 1928, -2776, 2523, 1699, -2492, 1707)])
@@ -341,7 +342,7 @@ sources/8 = SubResource("TileSetAtlasSource_pki1p")
 
 [node name="model_player" parent="." instance=ExtResource("1_h5upq")]
 z_index = 10
-position = Vector2(370, -1503)
+position = Vector2(-474, 75)
 speed = 120.0
 sprint_speed = 150.0
 inv = ExtResource("2_g4nu6")
@@ -441,6 +442,9 @@ position = Vector2(452, -1513)
 
 [node name="truck" parent="." instance=ExtResource("17_cbftx")]
 position = Vector2(625, -2381)
+
+[node name="ShadowsEnemy" parent="." instance=ExtResource("18_ks3ag")]
+position = Vector2(-369, 75)
 
 [editable path="model_player"]
 [editable path="model_player/weapon"]
