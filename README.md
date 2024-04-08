@@ -30,3 +30,10 @@ Notion link: https://mixolydian-pocket-35b.notion.site/Blobby-Game-Project-c6438
 - DevWorm (https://www.youtube.com/@dev-worm/), check his channel!
 - PlayWithFurcifer (https://www.youtube.com/@PlayWithFurcifer) 
     - Flash effect for enemy. https://www.youtube.com/watch?v=1pJyYtBAHks&pp=ygUPZ29kb3QgMmQgc2hhZGVy
+
+## New Features (UPDATED every commit)
+### Taser Weapon
+Weapon used by the Shadows (AARI Military Force's pseudonym), can shoot up to 200 pixels, stun player randomly between 0.5s-1.9s upon contact and may continue to stun after 1.0s delay. Stun can be releeased when:
+- Player attacked enemy
+- Player out of sight
+- Player moved farther than 400 pixels
