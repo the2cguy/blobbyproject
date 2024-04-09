@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/weaponItem.gd" id="1_qmqqx"]
 [ext_resource type="Texture2D" uid="uid://fiarpo6rw8ir" path="res://ui/imgs/gun icon.png" id="2_leo1j"]
 
-[sub_resource type="Resource" id="Resource_m6wdf"]
+[sub_resource type="Resource" id="Resource_hbew1"]
 script = ExtResource("1_qmqqx")
 name = "blitz34"
 capacity = 30
@@ -20,4 +20,4 @@ script = ExtResource("1_0h6lk")
 name = "blitz34"
 texture = ExtResource("2_leo1j")
 is_weapon = true
-weapon = SubResource("Resource_m6wdf")
+weapon = SubResource("Resource_hbew1")

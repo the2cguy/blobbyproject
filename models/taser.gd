@@ -34,6 +34,7 @@ func shoot():
 		if raycast.get_collider().name == "model_player" and taser_state == "close":
 			taser_state = "open"
 			$AnimationPlayer.play("shoot")
+			raycast.get_collider().slowmove = true
 func retract():
 	# If taser opened, then retract
 	if taser_state == "open":
@@ -46,5 +47,4 @@ func stun():
 	for body in stun_area.get_overlapping_bodies():
 		if body.name == "model_player":
 			body.get_node("health_component").damage(0.1)
-			body.slowmove = true
 			print("Slowmove true")

@@ -589,11 +589,10 @@ libraries = {
 speed_scale = 2.0
 
 [node name="ui_floating_key" parent="." instance=ExtResource("13_pbthi")]
-visible = false
 offset_left = 472.0
-offset_top = 64.0
+offset_top = -100.0
 offset_right = 512.0
-offset_bottom = 104.0
+offset_bottom = -60.0
 scale = Vector2(1.56568, 1.56568)
 
 [editable path="inv_ui"]

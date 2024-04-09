@@ -1,6 +1,15 @@
+res://scripts/collectible.gd
+res://models/components/collectible.tscn
 res://ui/theme/inventory.tres
+res://inventory/medkit.tres
 res://inventory/player_inventory.tres
 res://models/hurt.gdshader
-res://inventory/medkit.tres
+res://models/model_player.tscn
+res://maps/map_chapter1_test.tscn
 res://inventory/weapons/blitz34.tres
-res://scripts/components/inventory_component.gd
+res://inventory/collectibles/medkit_collectible.tscn
+res://shaders/shine.gdshader
+res://ui/ui_floating_key.tscn
+res://ui/main_hud.tscn
+res://models/taser.gd
+res://models/torchlight.tscn

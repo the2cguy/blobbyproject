@@ -1,11 +1,11 @@
+AnimationPlayer
 CollisionShape2D
 Area2D
-AnimationPlayer
+Sprite2D
 CanvasModulate
 Timer
 Node2D
 RayCast2D
-Sprite2D
 Line2D
 AnimatedSprite2D
 CharacterBody2D

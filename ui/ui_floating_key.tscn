@@ -1,24 +1,77 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqvvi64fknwaf"]
+[gd_scene load_steps=10 format=3 uid="uid://dqvvi64fknwaf"]
 
 [ext_resource type="Texture2D" uid="uid://cm2kmipwemmjt" path="res://ui/imgs/ui_floating_key.png" id="1_30ll5"]
 [ext_resource type="FontFile" uid="uid://do317wk6vp23l" path="res://ui/fonts/superstar_memesbruh03.ttf" id="2_o5lbe"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5prxn"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_mkm1e"]
 font = ExtResource("2_o5lbe")
-font_size = 19
+font_size = 1244
 font_color = Color(0.125536, 0.082063, 0.199802, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i45hc"]
 font = ExtResource("2_o5lbe")
-font_size = 19
+font_size = 1174
+
+[sub_resource type="Animation" id="Animation_irjfd"]
+resource_name = "SHOW"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-100, -0.25, 0, 0.25, 0, 0, -0.7, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_dtsct"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-100, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_gyjf1"]
+resource_name = "HIDE"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.7, 0, 0.25, 0, -100, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w1hva"]
+_data = {
+"HIDE": SubResource("Animation_gyjf1"),
+"RESET": SubResource("Animation_dtsct"),
+"SHOW": SubResource("Animation_irjfd")
+}
 
 [node name="ui_floating_key" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_top = -100.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = -60.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+material = SubResource("ShaderMaterial_5prxn")
 layout_mode = 0
 offset_right = 70.0
 offset_bottom = 31.0
@@ -30,22 +83,31 @@ axis_stretch_vertical = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 16.0
-offset_right = 50.0
-offset_bottom = 48.0
+offset_left = 24.0
+offset_top = 21.0
+offset_right = 646.0
+offset_bottom = 1265.0
+scale = Vector2(0.0175123, 0.0175123)
 text = "E"
 label_settings = SubResource("LabelSettings_mkm1e")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
+texture_filter = 1
 layout_mode = 0
-offset_left = 54.0
-offset_top = 16.0
-offset_right = 116.0
-offset_bottom = 48.0
+offset_left = 50.0
+offset_top = 22.0
+offset_right = 3866.0
+offset_bottom = 1197.0
+scale = Vector2(0.0185711, 0.0185711)
 text = "pick up"
 label_settings = SubResource("LabelSettings_i45hc")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w1hva")
+}
+speed_scale = 2.0
