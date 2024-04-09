@@ -1,15 +1,17 @@
-[gd_scene load_steps=30 format=3 uid="uid://ch50nop2obxfl"]
+[gd_scene load_steps=35 format=3 uid="uid://ch50nop2obxfl"]
 
 [ext_resource type="PackedScene" uid="uid://d25or1vcbdalh" path="res://models/model_player.tscn" id="1_h5upq"]
 [ext_resource type="Texture2D" uid="uid://d17yg6x224r20" path="res://tileset/snowroad.png" id="2_03kl8"]
 [ext_resource type="Resource" uid="uid://rwvlteer80fo" path="res://inventory/player_inventory.tres" id="2_g4nu6"]
 [ext_resource type="Texture2D" uid="uid://dydcge6422ky7" path="res://tileset/houseandsteps.png" id="3_5c6ur"]
 [ext_resource type="Texture2D" uid="uid://c3u4gdsjjs17t" path="res://tileset/background_snow.png" id="3_avhwu"]
+[ext_resource type="Script" path="res://maps/Node2D.gd" id="3_g3uy5"]
 [ext_resource type="Texture2D" uid="uid://ckyhcg3gpl23q" path="res://tileset/dirt-v2.png" id="3_i7a03"]
 [ext_resource type="Texture2D" uid="uid://10h3xwl65b1e" path="res://tileset/ice.png" id="4_4eua0"]
 [ext_resource type="PackedScene" uid="uid://7vc71hj8mcjb" path="res://models/components/procedural_map.tscn" id="4_iohd6"]
 [ext_resource type="Texture2D" uid="uid://2wyn2b68y11n" path="res://tileset/pine_trees.png" id="4_lvd8u"]
 [ext_resource type="PackedScene" uid="uid://cee7omdbwiski" path="res://ui/main_hud.tscn" id="6_dwi81"]
+[ext_resource type="Script" path="res://scripts/ScreenHurtEffect.gd" id="6_o42km"]
 [ext_resource type="Texture2D" uid="uid://bg7723g0vv3se" path="res://tileset/fence_sign.png" id="7_pv86p"]
 [ext_resource type="Texture2D" uid="uid://dp3n4di67m5bo" path="res://tileset/road.png" id="9_xhh1h"]
 [ext_resource type="PackedScene" uid="uid://ehw7r0okjnko" path="res://models/wolves.tscn" id="12_y1ako"]
@@ -338,6 +340,107 @@ sources/5 = SubResource("TileSetAtlasSource_u3uq1")
 sources/7 = SubResource("TileSetAtlasSource_y3q6l")
 sources/8 = SubResource("TileSetAtlasSource_pki1p")
 
+[sub_resource type="Animation" id="Animation_3msmb"]
+resource_name = "hurt"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.32549, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.447059, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_xmocj"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yhid7"]
+_data = {
+"RESET": SubResource("Animation_xmocj"),
+"hurt": SubResource("Animation_3msmb")
+}
+
 [node name="map_chapter1_test" type="Node2D"]
 
 [node name="model_player" parent="." instance=ExtResource("1_h5upq")]
@@ -361,6 +464,11 @@ zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Node2D" type="Node2D" parent="model_player/Camera2D"]
+script = ExtResource("3_g3uy5")
+
+[node name="Timer" type="Timer" parent="model_player/Camera2D/Node2D"]
 
 [node name="procedural_map" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("4_iohd6")]
 distribution_frequency = {
@@ -405,7 +513,6 @@ texture_filter = 1
 tile_set = SubResource("TileSet_laogb")
 format = 2
 layer_0/name = "Dirt"
-layer_0/tile_data = PackedInt32Array(-393232, 6, 0, -393231, 6, 0, -458766, 6, 0, -524301, 6, 0, -589837, 6, 0, -655372, 6, 0, -655371, 6, 0, -720906, 6, 0, -786442, 6, 0, -786441, 6, 0, -851977, 6, 0, -917512, 6, 0, -917511, 6, 0, -983047, 6, 0, -1048583, 6, 0, -1048582, 6, 0, -1114118, 6, 0, -1179654, 6, 0, -1179653, 6, 0, -1179652, 6, 0, -1179651, 6, 0, -1179650, 6, 0, -1179649, 6, 0, -1245184, 6, 0, -1245183, 6, 0, -1179647, 6, 0, -1114110, 6, 0, -1048574, 6, 0, -1048573, 6, 0, -983037, 6, 0, -917501, 6, 0, -851965, 6, 0, -786429, 6, 0, -720893, 6, 0, -655357, 6, 0, -589821, 6, 0, -589820, 6, 0, -589819, 6, 0, -524282, 6, 0, -524281, 6, 0, -524280, 6, 0, -524279, 6, 0, -458742, 6, 0, -458741, 6, 0, -458740, 6, 0, -524275, 6, 0, -524274, 6, 0, -524273, 6, 0, -589808, 6, 0, -655344, 6, 0, -655343, 6, 0, -655342, 6, 0, -655341, 6, 0, -655340, 6, 0, -655339, 6, 0, -2883577, 6, 0, -2818041, 6, 0, -2818040, 6, 0, -2752504, 6, 0, -2752503, 6, 0, -2752502, 6, 0, -2752501, 6, 0, -2752500, 6, 0, -2752499, 6, 0, -2752498, 6, 0, -2752497, 6, 0, -2752496, 6, 0, -2818032, 6, 0, -2818031, 6, 0, -2818030, 6, 0, -2883566, 6, 0, -2883565, 6, 0, -2949101, 6, 0, -2949100, 6, 0, -3014636, 6, 0, -3080172, 6, 0, -3080173, 6, 0, -3145709, 6, 0, -3145710, 6, 0, -3211246, 6, 0, -3211247, 6, 0, -3211248, 6, 0, -3276784, 6, 0, -3276785, 6, 0, -3342322, 6, 0, -3342323, 6, 0, -3342324, 6, 0, -3342325, 6, 0, -3342326, 6, 0, -3342327, 6, 0, -3342328, 6, 0, -3276793, 6, 0, -3276794, 6, 0, -3276795, 6, 0, -3211259, 6, 0, -3145723, 6, 0, -3080187, 6, 0, -3014651, 6, 0, -3014650, 6, 0, -2949114, 6, 0)
 layer_1/name = "Background"
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array()
@@ -432,19 +539,27 @@ layer_7/tile_data = PackedInt32Array(458752, 131077, 7)
 polygon = PackedVector2Array(437, -1646, 438, -1552, 543, -1628)
 
 [node name="medkit_collectible" parent="." instance=ExtResource("15_l5bbt")]
-position = Vector2(266, -1540)
+position = Vector2(-506, 148)
 
 [node name="blitz34_collectible" parent="." instance=ExtResource("16_8rylt")]
-position = Vector2(478, -1449)
+position = Vector2(-294, 239)
 
 [node name="blitz34_collectible2" parent="." instance=ExtResource("16_8rylt")]
-position = Vector2(452, -1513)
+position = Vector2(-320, 175)
 
 [node name="truck" parent="." instance=ExtResource("17_cbftx")]
 position = Vector2(625, -2381)
 
 [node name="ShadowsEnemy" parent="." instance=ExtResource("18_ks3ag")]
 position = Vector2(-369, 75)
+
+[node name="ScreenHurtEffect" type="CanvasModulate" parent="."]
+script = ExtResource("6_o42km")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenHurtEffect"]
+libraries = {
+"": SubResource("AnimationLibrary_yhid7")
+}
 
 [editable path="model_player"]
 [editable path="model_player/weapon"]

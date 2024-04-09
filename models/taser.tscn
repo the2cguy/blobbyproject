@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3f1fov5pfcgx"]
+[gd_scene load_steps=8 format=3 uid="uid://b3f1fov5pfcgx"]
 
 [ext_resource type="Script" path="res://models/taser.gd" id="1_6i57u"]
 [ext_resource type="Texture2D" uid="uid://tsrudis2p1ds" path="res://sprites/taser_sting.png" id="2_60plb"]
@@ -52,6 +52,9 @@ _data = {
 "shoot": SubResource("Animation_bvmq0")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yahx"]
+size = Vector2(4, 3)
+
 [node name="Taser" type="Node2D"]
 script = ExtResource("1_6i57u")
 
@@ -70,5 +73,11 @@ speed_scale = 2.0
 position = Vector2(165, -9)
 texture = ExtResource("2_60plb")
 offset = Vector2(0, 3)
+
+[node name="StunArea" type="Area2D" parent="TaserSting"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TaserSting/StunArea"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_1yahx")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

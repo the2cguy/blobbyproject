@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsjpal88fyq57"]
+[gd_scene load_steps=13 format=3 uid="uid://dsjpal88fyq57"]
 
 [ext_resource type="Script" path="res://scripts/enemy_ai/shadows_enemy.gd" id="1_fqaec"]
+[ext_resource type="PackedScene" uid="uid://dmm6ogo1u2fpq" path="res://models/components/health_component.tscn" id="2_0ir6q"]
 [ext_resource type="PackedScene" uid="uid://b3f1fov5pfcgx" path="res://models/taser.tscn" id="2_6336w"]
 [ext_resource type="Texture2D" uid="uid://cvrm2h2gnb5pj" path="res://sprites/shadows/shadows_idle.png" id="2_iygl7"]
+[ext_resource type="PackedScene" uid="uid://dlkx1vdu7yss4" path="res://models/components/knockback_component.tscn" id="2_nabnk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6ngg"]
 atlas = ExtResource("2_iygl7")
@@ -48,9 +50,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fatmr"]
 size = Vector2(9, 24.5)
 
-[node name="ShadowsEnemy" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_tqi54"]
+radius = 53.2353
+
+[node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_fqaec")
 speed = 100.0
+
+[node name="KnockbackComponent" parent="." instance=ExtResource("2_nabnk")]
+knockback_amount = 200.0
+
+[node name="health_component" parent="." instance=ExtResource("2_0ir6q")]
 
 [node name="Taser" parent="." instance=ExtResource("2_6336w")]
 position = Vector2(1, 2)
@@ -63,3 +73,22 @@ frame_progress = 0.31941
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1.25)
 shape = SubResource("RectangleShape2D_fatmr")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_tqi54")
+
+[node name="TaserTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HurtArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
+position = Vector2(-0.5, 1.25)
+shape = SubResource("RectangleShape2D_fatmr")
+
+[connection signal="damageIncoming" from="health_component" to="." method="_on_health_component_damage_incoming"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="timeout" from="TaserTimer" to="." method="_on_taser_timer_timeout"]
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]

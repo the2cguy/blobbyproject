@@ -17,7 +17,7 @@ func _process(delta):
 func _on_body_entered(body: Node2D) -> void:
 	if body.name != "model_player" and body.has_node("health_component"):
 		body.get_node("health_component").damage(1.0)
-		if body.has_method("knockbackFunc"): 
-			body.knockbackFunc((Vector2.RIGHT * speed * knockbackmultiplier).rotated(rotation))
+		if body.has_node("KnockbackComponent"): 
+			body.get_node("KnockbackComponent").knockback(((Vector2.RIGHT * speed).rotated(rotation) * get_process_delta_time()).normalized())
 		queue_free()
 		

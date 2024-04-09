@@ -22,3 +22,5 @@ var itembtn = preload("res://ui/items_btn.tscn")
 var health:float = 0
 var player:CharacterBody2D
 var UI:Control
+var camera:Camera2D
+var screenfx:CanvasModulate

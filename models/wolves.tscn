@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://ehw7r0okjnko"]
+[gd_scene load_steps=19 format=3 uid="uid://ehw7r0okjnko"]
 
 [ext_resource type="Shader" path="res://models/hurt.gdshader" id="1_6cdng"]
 [ext_resource type="Script" path="res://scripts/enemy_ai/wolf.gd" id="1_ga0xj"]
+[ext_resource type="PackedScene" uid="uid://dlkx1vdu7yss4" path="res://models/components/knockback_component.tscn" id="2_06xck"]
 [ext_resource type="Texture2D" uid="uid://c56n0a7aixgqm" path="res://pixilart-drawing.png" id="2_tv55k"]
 [ext_resource type="PackedScene" uid="uid://dmm6ogo1u2fpq" path="res://models/components/health_component.tscn" id="3_65see"]
 
@@ -102,6 +103,8 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_ry76s")
 script = ExtResource("1_ga0xj")
 speed = 200.0
 knockback_multiplier = 10.0
+
+[node name="KnockbackComponent" parent="." instance=ExtResource("2_06xck")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

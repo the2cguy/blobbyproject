@@ -1,4 +1,7 @@
+res://scripts/components
+res://models/components
 res://models
+res://scripts
 res://scripts/enemy_ai
 res://sprites/shadows
 res://ui
@@ -6,6 +9,5 @@ res://maps
 res://
 res://scripts/ui
 res://inventory/
-res://scripts
 res://scripts/inventory/collectibles
 res://inventory/collectibles

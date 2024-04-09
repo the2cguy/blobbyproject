@@ -9,7 +9,7 @@ var noise_y = 0.0
 var amount:int
 var freeze_movement:bool = false
 var stun_time:Timer = Timer.new()
-
+var slowmove:bool = false
 @export var inv:Inv
 func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
@@ -24,9 +24,11 @@ func _process(delta):
 	#print(stun_time.is_stopped())
 	if not freeze_movement:
 		var dir = Input.get_vector("left", "right", "up", "down")
-		if Input.is_action_pressed("sprint"):
+		if Input.is_action_pressed("sprint") and not slowmove:
 			velocity = lerp(velocity, dir * sprint_speed, 0.2)
-		else:
+		elif slowmove:
+			velocity = lerp(velocity, dir * speed * 0.5, 0.2)
+		elif not slowmove:
 			velocity = lerp(velocity, dir * speed, 0.2)
 		if dir:
 			$AnimatedSprite2D.play("walk")
@@ -49,6 +51,9 @@ func _process(delta):
 		$Camera2D.drag_vertical_enabled = false
 
 func _on_health_component_damage_incoming() -> void:
+	# Shake Screen effect
+	Global.camera.get_node("Node2D").shake(1.0, 1.0)
+	Global.screenfx.enable_effect()
 	if stun_time.is_stopped():
 		stun_time.start()
 	pass

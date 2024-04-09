@@ -92,7 +92,7 @@ func _physics_process(delta: float) -> void:
 				if detect_LOS():
 					state.set_state("aware")
 		# If enemy is IDLE roam around to roam direction
-		velocity = velocity.move_toward(Vector2.RIGHT.rotated(roam_direction) * 40, delta * 40)
+		velocity = velocity.move_toward(Vector2.RIGHT.rotated(roam_direction) * 40, 4.0)
 	# If enemy is AWARE then moves toward the player.
 	if state.aware():
 		var MAXSPEED = 50
@@ -104,9 +104,7 @@ func _physics_process(delta: float) -> void:
 			$Sprite2D.flip_h = true
 		else:
 			$Sprite2D.flip_h = false
-		steering += knockback
-		knockback *= 0.92
-		velocity += steering
+		velocity = velocity.move_toward(steering, 4.0)
 		# If heading right then flip sprite
 			
 		#velocity = velocity.clamp(Vector2(-MAXSPEED, -MAXSPEED), Vector2(MAXSPEED, MAXSPEED))
