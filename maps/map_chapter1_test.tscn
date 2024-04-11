@@ -512,12 +512,6 @@ seedidk = 5615
 [node name="ammo_text" parent="CanvasLayer/main_hud" index="2" node_paths=PackedStringArray("weapon")]
 weapon = NodePath("../../../model_player/weapon")
 
-[node name="inv_ui" parent="CanvasLayer/main_hud" index="9"]
-offset_left = -357.0
-offset_top = -113.0
-offset_right = -229.0
-offset_bottom = -81.0
-
 [node name="enemy" parent="." instance=ExtResource("12_y1ako")]
 z_index = 11
 position = Vector2(10, -1732)

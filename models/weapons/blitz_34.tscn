@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://fudcsbg3ni6d"]
+
+[ext_resource type="Texture2D" uid="uid://cm8uowf5x1wjp" path="res://sprites/weapons/blitz34/blitz34-v4.png" id="1_c0ikn"]
+[ext_resource type="Script" path="res://scripts/weapons/blitz_34.gd" id="1_xbfi6"]
+[ext_resource type="PackedScene" uid="uid://dljkhgr5bkure" path="res://models/model_default_bullet.tscn" id="2_s24d3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhibc"]
+atlas = ExtResource("1_c0ikn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjiyl"]
+atlas = ExtResource("1_c0ikn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t63o"]
+atlas = ExtResource("1_c0ikn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l10r2"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhibc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjiyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t63o")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 3.0
+}]
+
+[node name="blitz34" type="Node2D"]
+script = ExtResource("1_xbfi6")
+bullet = ExtResource("2_s24d3")
+max_capacity = 16
+
+[node name="rotate_weapon" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="rotate_weapon"]
+sprite_frames = SubResource("SpriteFrames_l10r2")
+animation = &"shooting"
+frame_progress = 0.209197
+speed_scale = 5.0
+
+[node name="Marker2D" type="Marker2D" parent="rotate_weapon"]
+position = Vector2(13, 0)

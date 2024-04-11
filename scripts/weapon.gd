@@ -20,8 +20,10 @@ func _ready():
 	add_child(reloadTimer)
 	reloadTimer.timeout.connect(_reload)
 	Global.weapon = self
-	# Load all weapons
-	
+	# Hide Sprite
+	load_weapons()
+	if len(weapons) == 0:
+		$rotate_weapon/Sprite2D.hide()
 	
 func load_weapons():
 	weapons = []

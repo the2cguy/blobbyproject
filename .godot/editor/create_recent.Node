@@ -1,13 +1,14 @@
+Marker2D
+AnimatedSprite2D
+Sprite2D
+Node2D
 AnimationPlayer
 CollisionShape2D
 Area2D
-Sprite2D
 CanvasModulate
 Timer
-Node2D
 RayCast2D
 Line2D
-AnimatedSprite2D
 CharacterBody2D
 Label
 NinePatchRect
