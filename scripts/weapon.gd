@@ -1,130 +1,69 @@
 extends Node2D
 
 var weaponID = 0
-var weapons:Array[InvItem]
-var shootDelayTimer:Timer = Timer.new()
-var reloadTimer:Timer = Timer.new()
-var allowFire = true
-var bullet = preload("res://models/model_default_bullet.tscn")
+var last_weaponID = 0
+@onready var weapons_node = $Node2D
 @export var inv:Inv
-@onready var animationtree:AnimationTree = $AnimationTree
-@export var reloadBar:ProgressBar
-@export var hurtArea:Area2D
 @export var playerdata:PlayerData
 # Normal Init
+var weapon_type = ""
 func _ready():
-	# Init Timers
-	shootDelayTimer.one_shot = true
-	add_child(shootDelayTimer)
-	reloadTimer.one_shot = true
-	add_child(reloadTimer)
-	reloadTimer.timeout.connect(_reload)
 	Global.weapon = self
-	# Hide Sprite
 	load_weapons()
-	if len(weapons) == 0:
-		$rotate_weapon/Sprite2D.hide()
-	
+
 func load_weapons():
-	weapons = []
 	for i in range(len(inv.slots)):
 		if inv.slots[i].item != null:
 			if inv.slots[i].item.is_weapon:
-				weapons.append(inv.slots[i].item)
+				var weapon_instance = inv.slots[i].item.weapon.instantiate()
+				weapons_node.add_child(weapon_instance)
 			#i.item.weapon.ammo
-	if len(weapons) != 0:
-		_nextWeapon()
 
+func get_current_weapon():
+	if weapons_node.get_children():
+		return weapons_node.get_children()[weaponID]
 
-func get_current_weapon() -> weaponItem:
-	if len(weapons) > 0:
-		return weapons[weaponID].weapon
+func add_weapon(weapon):
+	var k = weapon.instantiate()
+	k.hide()
+	weapons_node.add_child(k)
+
+func set_weapon(id):
+	if id != -2:
+		last_weaponID = weaponID
+		print(last_weaponID)
+		weaponID = id
+		playerdata.weaponid = weaponID
+		weapons_node.get_children()[last_weaponID].hide()
+		weapons_node.get_children()[last_weaponID].current_weapon = false
+		weapons_node.get_children()[weaponID].show()
+		weapons_node.get_children()[weaponID].current_weapon = true
+		weapon_type = weapons_node.get_children()[weaponID].weapon_type
 	else:
-		return null
-	
-	
-# Called when the node enters the scene tree for the first time.
-# Melee Function
-func _attack():
-	$rotate_weapon/Sprite2D.play(get_current_weapon().name+"_melee")
-	for i in hurtArea.get_overlapping_bodies():
-		if i.name != "model_player":
-			if i.has_node("health_component"):
-				i.get_node("health_component").damage(0.5)
-			if i.has_method("knockbackFunc"):
-				i.knockbackFunc(Vector2.RIGHT.rotated($melee_rotation.rotation) * get_current_weapon().knockback)
-# Guns Function
-func reduceAmmo(amount:int):
-	get_current_weapon().ammo -= amount
-func _fire():
-	if get_current_weapon().ammo > 0 and shootDelayTimer.is_stopped() and reloadTimer.is_stopped():
-		allowFire = true
-	if not get_current_weapon().ammo > 0:
-		animationtree["parameters/conditions/isShooting"] = false		
-		animationtree["parameters/conditions/isStop"] = true		
-	if allowFire:
-		animationtree["parameters/conditions/isStop"] = false		
-		animationtree["parameters/conditions/isShooting"] = true		
-		#print("muahahaha")
-		reduceAmmo(1)
-		$rotate_weapon/Sprite2D.play(get_current_weapon().name+"_shooting")
-		# Spawn Bullet
-		var bullet_instance = bullet.instantiate()
-		bullet_instance.global_position = $rotate_weapon/Sprite2D/Marker2D.global_position
-		get_node("/root/map_chapter1_test").add_child(bullet_instance)
-		# Delay Fire
-		allowFire = false
-		shootDelayTimer.start(1.0/get_current_weapon().ROF)
-	return
-func _reload():
-	get_current_weapon().ammo = get_current_weapon().capacity
-	# Hide Reload Bar
-	reloadBar.get_parent().hide()
-# Global Functions
-func _nextWeapon():
-	weaponID += 1
-	if weaponID > (len(weapons) - 1):
-		weaponID = 0
-	$rotate_weapon/Sprite2D.play(get_current_weapon().name+"_idle")
-	playerdata.weaponid = weaponID
-	print(weaponID)
-func _idleWeapon():
-	$rotate_weapon/Sprite2D.play(get_current_weapon().name+"_idle")
+		# If the selected slot of the UI is not a weapon then do the code below
+		last_weaponID = weaponID
+		weapons_node.get_children()[weaponID].hide()
+		weapons_node.get_children()[weaponID].current_weapon = false
+		Global.UI.get_node("ammo_text").text = "-"
+		weapon_type = "NONE"
+		weaponID = -2
+			
+func set_weapon_name(name:String):
+	for i in len(weapons_node.get_children()):
+		if weapons_node.get_children()[i].name == name:
+			set_weapon(i)
+			print(i)
+			break
 func _process(delta):
-	if get_current_weapon() != null:
-		# Point melee rotation towards mouse
-		$melee_rotation.look_at(get_global_mouse_position())
-		# Flip weapon if mouse X is lower than this X
-		if get_global_mouse_position().x > global_position.x:
-			$rotate_weapon.scale.x = 1
-		else:
-			$rotate_weapon.scale.x = -1
-		# Update reload bar
-		reloadBar.value = reloadTimer.time_left
-		#Point towards the cursor and reload weapon, If weaponType is SEMIAUTO or AUTO
-		if get_current_weapon().weapon_type == "SEMIAUTO" or get_current_weapon().weapon_type == "AUTO":
-			$rotate_weapon/Sprite2D.look_at(get_global_mouse_position())
-			# Reload weapon
-			if Input.is_action_just_pressed("reload") and reloadTimer.is_stopped():
-				reloadTimer.start(get_current_weapon().reload_time)
-				reloadBar.get_parent().show()	
-		#Automatic shooting
-		if get_current_weapon().weapon_type == "AUTO":
-			if Input.is_action_pressed("shoot"):
-				_fire()
-			elif Input.is_action_just_released("shoot"):
-				_idleWeapon()
-				animationtree["parameters/conditions/isShooting"] = false
-				animationtree["parameters/conditions/isStop"] = true
-		#Semi-automatic shooting
-		if get_current_weapon().weapon_type == "SEMIAUTO":
-			if Input.is_action_just_pressed("shoot"):
-				_fire()
-		#If weapon is melee
-		if get_current_weapon().weapon_type == "MELEE": 
-			$rotate_weapon/Sprite2D.rotation = 0.0
-			if Input.is_action_just_pressed("shoot") and get_parent().stun_time.is_stopped():
-				_attack()
-				
-		if Input.is_action_just_pressed("switch"):
-				_nextWeapon()
+	if weapon_type == "AUTO":
+		if Input.is_action_pressed("shoot"):
+			weapons_node.get_children()[weaponID].shoot()
+		if Input.is_action_just_pressed("reload"):
+			get_current_weapon().start_reload()
+	elif weapon_type == "SEMIAUTO":
+		if Input.is_action_just_pressed("shoot"):
+			get_current_weapon().shoot()
+		if Input.is_action_just_pressed("reload"):
+			get_current_weapon().start_reload()
+	#if Input.is_action_just_pressed("switch"):
+		#_nextWeapon()

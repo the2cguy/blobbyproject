@@ -23,8 +23,12 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"blobby": "res://dialogs/blobby.dch"
+}
+directories/dtl_directory={
+"level1_001_blobbyfather": "res://dialogs/level1_001_blobbyfather.dtl"
+}
 
 [display]
 
@@ -115,3 +119,4 @@ dialogic_default_action={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_vertices_to_pixel=true

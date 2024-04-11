@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://cm88tp6psbic2"]
+
+[ext_resource type="Script" path="res://scripts/weapons/blitz_34.gd" id="1_1vyvs"]
+[ext_resource type="PackedScene" uid="uid://dljkhgr5bkure" path="res://models/model_default_bullet.tscn" id="2_umg41"]
+[ext_resource type="Texture2D" uid="uid://dwql531q3s6gu" path="res://sprites/weapons/zk2_gen3/zk2_gen3-v2.png" id="3_g1gjj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lpex"]
+atlas = ExtResource("3_g1gjj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qflw7"]
+atlas = ExtResource("3_g1gjj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbm2p"]
+atlas = ExtResource("3_g1gjj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjs43"]
+atlas = ExtResource("3_g1gjj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw32p"]
+atlas = ExtResource("3_g1gjj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvjb7"]
+atlas = ExtResource("3_g1gjj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rqw28"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lpex")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qflw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbm2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjs43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw32p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvjb7")
+}],
+"loop": false,
+"name": &"shooting",
+"speed": 20.0
+}]
+
+[node name="glock16" type="Node2D"]
+script = ExtResource("1_1vyvs")
+bullet = ExtResource("2_umg41")
+rof = 2
+reload_time = 1.0
+max_capacity = 12
+weapon_type = "SEMIAUTO"
+
+[node name="rotate_weapon" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="rotate_weapon"]
+sprite_frames = SubResource("SpriteFrames_rqw28")
+animation = &"shooting"
+frame = 4
+frame_progress = 1.0
+
+[node name="Marker2D" type="Marker2D" parent="rotate_weapon"]

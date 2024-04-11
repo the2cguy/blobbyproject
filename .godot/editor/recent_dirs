@@ -1,5 +1,7 @@
-res://scripts/weapons
+res://dialogs
 res://models/weapons
+res://scripts/weapons
+res://sprites/weapons/zk2_gen3
 res://sprites/weapons/blitz34
 res://models
 res://shaders

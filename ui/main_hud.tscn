@@ -1,10 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://cee7omdbwiski"]
+[gd_scene load_steps=28 format=3 uid="uid://cee7omdbwiski"]
 
 [ext_resource type="Texture2D" uid="uid://bplgfffgs078u" path="res://ui/imgs/crosshair_default.png" id="1_kfkct"]
 [ext_resource type="Script" path="res://scripts/ui/crosshair.gd" id="2_jcp26"]
 [ext_resource type="Texture2D" uid="uid://bl685hg3rhnob" path="res://ui/imgs/gun_ui_info.png" id="3_4cxhb"]
 [ext_resource type="FontFile" uid="uid://do317wk6vp23l" path="res://ui/fonts/superstar_memesbruh03.ttf" id="4_2y6bi"]
-[ext_resource type="Script" path="res://scripts/ui/ammo_text.gd" id="5_jtwbc"]
 [ext_resource type="Script" path="res://scripts/ui/reload_progress.gd" id="6_ik8hh"]
 [ext_resource type="Texture2D" uid="uid://pii3d3a64xoa" path="res://ui/imgs/reloadicon.png" id="7_6y3vc"]
 [ext_resource type="Texture2D" uid="uid://b00mjr26nt6sf" path="res://ui/imgs/health_icon_ui.png" id="8_ivipe"]
@@ -437,7 +436,6 @@ grow_vertical = 0
 scale = Vector2(0.0919692, 0.0919692)
 text = "16"
 label_settings = SubResource("LabelSettings_ajcou")
-script = ExtResource("5_jtwbc")
 
 [node name="reload_control" type="Control" parent="."]
 visible = false

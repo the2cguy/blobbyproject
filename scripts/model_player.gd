@@ -60,4 +60,5 @@ func _on_health_component_damage_incoming() -> void:
 
 func collect(item:InvItem):
 	inv.insert(item)
-	$weapon.load_weapons()
+	if item.is_weapon:
+		$weapon.add_weapon(item.weapon)

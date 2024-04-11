@@ -32,8 +32,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2t63o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhibc")
 }],
-"loop": true,
+"loop": false,
 "name": &"shooting",
 "speed": 3.0
 }]
@@ -41,15 +44,18 @@ animations = [{
 [node name="blitz34" type="Node2D"]
 script = ExtResource("1_xbfi6")
 bullet = ExtResource("2_s24d3")
+rof = 5
+reload_time = 1.5
 max_capacity = 16
 
 [node name="rotate_weapon" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="rotate_weapon"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="rotate_weapon"]
 sprite_frames = SubResource("SpriteFrames_l10r2")
 animation = &"shooting"
-frame_progress = 0.209197
-speed_scale = 5.0
+frame = 3
+frame_progress = 1.0
+speed_scale = 10.0
 
 [node name="Marker2D" type="Marker2D" parent="rotate_weapon"]
 position = Vector2(13, 0)

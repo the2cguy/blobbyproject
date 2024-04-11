@@ -56,9 +56,6 @@ position = Vector2(9, 5)
 inv = ExtResource("3_g37i1")
 playerdata = ExtResource("4_xuego")
 
-[node name="rotate_weapon" parent="weapon" index="2"]
-position = Vector2(-10, -8)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_pud7h")
