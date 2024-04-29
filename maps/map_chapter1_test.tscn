@@ -578,6 +578,26 @@ seedidk = 5615
 [node name="crosshair" parent="CanvasLayer/main_hud" index="0"]
 visible = false
 
+[node name="black_bar_top" parent="CanvasLayer/main_hud" index="3"]
+offset_left = -206.0
+offset_right = 1358.0
+
+[node name="black_bar_down" parent="CanvasLayer/main_hud" index="4"]
+offset_left = -228.0
+offset_top = 661.0
+offset_right = 1380.0
+offset_bottom = 715.0
+
+[node name="inv_ui" parent="CanvasLayer/main_hud" index="5"]
+offset_left = 795.0
+offset_top = 535.0
+offset_right = 923.0
+offset_bottom = 567.0
+
+[node name="AmmoBar" parent="CanvasLayer/main_hud" index="9"]
+offset_top = 453.0
+offset_bottom = 517.0
+
 [node name="enemy" parent="." instance=ExtResource("12_y1ako")]
 z_index = 11
 position = Vector2(10, -1732)

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="BlobbyProject"
 config/version="0.3.0-testing"
-run/main_scene="res://maps/map_chapter1_test.tscn"
+run/main_scene="res://maps/chapter_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

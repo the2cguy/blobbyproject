@@ -37,7 +37,6 @@ func _process(delta: float) -> void:
 		else:
 			$rotate_weapon/AnimatedSprite2D.flip_v = false
 		reload_bar.get_node("reload_progress").value = reload_timer.time_left
-		Glob
 		
 	
 func start_reload():
