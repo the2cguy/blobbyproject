@@ -1,8 +1,0 @@
-res://models/characters/blobbys_father.tscn
-res://ui/theme/inventory.tres
-res://dialogs/bubble.tres
-res://dialogs/subtitle_like.tres
-res://dialogs/New_File.tres
-res://inventory/player_inventory.tres
-res://models/hurt.gdshader
-res://shaders/shine.gdshader
