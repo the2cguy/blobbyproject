@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ch50nop2obxfl"]
+[gd_scene load_steps=54 format=3 uid="uid://ch50nop2obxfl"]
 
 [ext_resource type="PackedScene" uid="uid://d25or1vcbdalh" path="res://models/model_player.tscn" id="1_h5upq"]
 [ext_resource type="Texture2D" uid="uid://d17yg6x224r20" path="res://tileset/snowroad.png" id="2_03kl8"]
@@ -17,14 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://ehw7r0okjnko" path="res://models/wolves.tscn" id="12_y1ako"]
 [ext_resource type="Texture2D" uid="uid://ca4ppct1jbkr3" path="res://tileset/house-v2.png" id="13_tknj6"]
 [ext_resource type="PackedScene" uid="uid://vo2fyqnekglt" path="res://models/truck.tscn" id="17_cbftx"]
-[ext_resource type="PackedScene" uid="uid://dsjpal88fyq57" path="res://models/shadows_enemy.tscn" id="18_ks3ag"]
-[ext_resource type="PackedScene" uid="uid://lgehtywwyikp" path="res://models/components/collectible.tscn" id="19_vv1lo"]
-[ext_resource type="Script" path="res://scripts/inventory/item.gd" id="20_f6p7w"]
-[ext_resource type="Texture2D" uid="uid://fiarpo6rw8ir" path="res://ui/imgs/gun icon.png" id="21_dosmj"]
-[ext_resource type="Texture2D" uid="uid://ccjd4idvsmm6p" path="res://inventory/icons/auto.png" id="21_jcn1i"]
-[ext_resource type="PackedScene" uid="uid://cm88tp6psbic2" path="res://models/weapons/glock_16.tscn" id="22_i4hq4"]
-[ext_resource type="PackedScene" uid="uid://fudcsbg3ni6d" path="res://models/weapons/blitz_34.tscn" id="22_pwsjs"]
-[ext_resource type="Texture2D" uid="uid://bpp7rln3uo3yd" path="res://sprites/paperclip.png" id="23_j2ygj"]
+[ext_resource type="PackedScene" uid="uid://bueaek56gqcq7" path="res://models/characters/blobbys_father.tscn" id="18_ot7je"]
+[ext_resource type="PackedScene" uid="uid://lgehtywwyikp" path="res://models/components/collectible.tscn" id="19_3hf82"]
+[ext_resource type="Script" path="res://scripts/inventory/item.gd" id="20_a4gud"]
+[ext_resource type="Texture2D" uid="uid://ccjd4idvsmm6p" path="res://inventory/icons/auto.png" id="21_o8s8a"]
+[ext_resource type="PackedScene" uid="uid://fudcsbg3ni6d" path="res://models/weapons/blitz_34.tscn" id="22_cogih"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ig6p1"]
+polygon = PackedVector2Array(-14, 1, -13, -2, -10, -4, -7, -6, 8, -8, 11, -7, 15, -1, 10, 8, 7, 11, 0, 9, -15, 3)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w2183"]
 outlines = Array[PackedVector2Array]([PackedVector2Array(-2204, -2604, 1928, -2776, 2523, 1699, -2492, 1707)])
@@ -61,18 +61,36 @@ texture_region_size = Vector2i(32, 32)
 2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:4/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lr3d7"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_l5mdg"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lnpi2"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rggrj"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qmvfh"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wulux"]
 texture = ExtResource("3_5c6ur")
 texture_region_size = Vector2i(32, 32)
 4:3/0 = 0
+4:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_lr3d7")
 4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:3/0/physics_layer_0/angular_velocity = 0.0
 4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.5, 16, -0.5, 5.25, 16, -7.5, 16, 16, -16, 16)
 5:3/0 = 0
+5:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_rggrj")
 5:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:3/0/physics_layer_0/angular_velocity = 0.0
 5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -6, 0.5, -16, 16, -6.5, 16, 16, -16, 16)
 6:3/0 = 0
+6:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_rggrj")
 6:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:3/0/physics_layer_0/angular_velocity = 0.0
 6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -6, 12.5, 12.25, 12.5, 16, -16, 16)
@@ -80,26 +98,32 @@ texture_region_size = Vector2i(32, 32)
 2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:4/0/physics_layer_0/angular_velocity = 0.0
 4:4/0 = 0
+4:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_l5mdg")
 4:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:4/0/physics_layer_0/angular_velocity = 0.0
 4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12.5, -16, 16, -16, 16, 16, 16, 16, -12.5, 16)
 5:4/0 = 0
+5:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_lr3d7")
 5:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:4/0/physics_layer_0/angular_velocity = 0.0
 5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 6:4/0 = 0
+6:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_qmvfh")
 6:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:4/0/physics_layer_0/angular_velocity = 0.0
 6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 13.25, -16, 12.5, 16, -16, 16)
 4:5/0 = 0
+4:5/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_lnpi2")
 4:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:5/0/physics_layer_0/angular_velocity = 0.0
 4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12.5, -16, 16, -16, 16, 16, 16, 16, -12.5, 16)
 5:5/0 = 0
+5:5/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_lr3d7")
 5:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:5/0/physics_layer_0/angular_velocity = 0.0
 5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 6:5/0 = 0
+6:5/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_lr3d7")
 6:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:5/0/physics_layer_0/angular_velocity = 0.0
 6:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 13.25, -16, 12.5, 16, -16, 16)
@@ -331,6 +355,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_laogb"]
 tile_size = Vector2i(32, 32)
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 3
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Ice"
@@ -355,7 +380,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.423529, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/1/type = "bezier"
@@ -366,7 +391,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.435294, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/2/type = "bezier"
@@ -377,7 +402,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.494118, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/3/type = "bezier"
@@ -446,31 +471,74 @@ _data = {
 "hurt": SubResource("Animation_3msmb")
 }
 
-[sub_resource type="Resource" id="Resource_ql0g5"]
-script = ExtResource("20_f6p7w")
+[sub_resource type="Curve" id="Curve_2glax"]
+_data = [Vector2(0.0283019, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_varm7"]
+curve = SubResource("Curve_2glax")
+
+[sub_resource type="Gradient" id="Gradient_x7q08"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.515625, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_131ml"]
+gradient = SubResource("Gradient_x7q08")
+
+[sub_resource type="Curve" id="Curve_lmgch"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.801887, 0.186813), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5x3o4"]
+curve = SubResource("Curve_lmgch")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l6ulo"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.6
+direction = Vector3(0, -1, 0)
+spread = 19.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -50, 0)
+tangential_accel_min = -11.67
+tangential_accel_max = 5.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_5x3o4")
+color_initial_ramp = SubResource("GradientTexture1D_131ml")
+alpha_curve = SubResource("CurveTexture_varm7")
+
+[sub_resource type="Gradient" id="Gradient_f8hcj"]
+offsets = PackedFloat32Array(0, 0.819444)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_li8tt"]
+gradient = SubResource("Gradient_f8hcj")
+width = 256
+height = 256
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.504274, 0.495726)
+fill_to = Vector2(0.884615, 0.0769231)
+
+[sub_resource type="Environment" id="Environment_nu2ey"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.24
+glow_bloom = 0.72
+adjustment_brightness = 0.55
+
+[sub_resource type="Resource" id="Resource_y31q5"]
+script = ExtResource("20_a4gud")
 name = "blitz34"
-texture = ExtResource("21_jcn1i")
+texture = ExtResource("21_o8s8a")
 is_weapon = true
-weapon = ExtResource("22_pwsjs")
-
-[sub_resource type="Resource" id="Resource_d526i"]
-script = ExtResource("20_f6p7w")
-name = "glock16"
-texture = ExtResource("21_dosmj")
-is_weapon = true
-weapon = ExtResource("22_i4hq4")
-
-[sub_resource type="Resource" id="Resource_02yfb"]
-script = ExtResource("20_f6p7w")
-name = "paperclip"
-texture = ExtResource("23_j2ygj")
-is_weapon = false
+weapon = ExtResource("22_cogih")
 
 [node name="map_chapter1_test" type="Node2D"]
 
 [node name="model_player" parent="." instance=ExtResource("1_h5upq")]
 z_index = 10
-position = Vector2(-474, 75)
+position = Vector2(-591, 89)
 speed = 120.0
 sprint_speed = 150.0
 inv = ExtResource("2_g4nu6")
@@ -492,6 +560,9 @@ script = ExtResource("3_g3uy5")
 
 [node name="Timer" type="Timer" parent="model_player/Camera2D/Node2D"]
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="model_player"]
+occluder = SubResource("OccluderPolygon2D_ig6p1")
+
 [node name="procedural_map" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("4_iohd6")]
 distribution_frequency = {
 "dirt": 0.1146,
@@ -504,11 +575,8 @@ seedidk = 5615
 
 [node name="main_hud" parent="CanvasLayer" instance=ExtResource("6_dwi81")]
 
-[node name="inv_ui" parent="CanvasLayer/main_hud" index="9"]
-offset_left = -357.0
-offset_top = -113.0
-offset_right = -229.0
-offset_bottom = -81.0
+[node name="crosshair" parent="CanvasLayer/main_hud" index="0"]
+visible = false
 
 [node name="enemy" parent="." instance=ExtResource("12_y1ako")]
 z_index = 11
@@ -566,10 +634,8 @@ polygon = PackedVector2Array(437, -1646, 438, -1552, 543, -1628)
 [node name="truck" parent="." instance=ExtResource("17_cbftx")]
 position = Vector2(625, -2381)
 
-[node name="ShadowsEnemy" parent="." instance=ExtResource("18_ks3ag")]
-position = Vector2(-369, 75)
-
 [node name="ScreenHurtEffect" type="CanvasModulate" parent="."]
+color = Color(0.423529, 0.435294, 0.494118, 1)
 script = ExtResource("6_o42km")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenHurtEffect"]
@@ -577,20 +643,31 @@ libraries = {
 "": SubResource("AnimationLibrary_yhid7")
 }
 
-[node name="Collectible" parent="." instance=ExtResource("19_vv1lo")]
-position = Vector2(-558, 118)
-item = SubResource("Resource_ql0g5")
+[node name="BlobbysFather" parent="." instance=ExtResource("18_ot7je")]
+position = Vector2(-84, 140)
 
-[node name="Collectible3" parent="." instance=ExtResource("19_vv1lo")]
-position = Vector2(-474, 136)
-item = SubResource("Resource_d526i")
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+self_modulate = Color(5, 1, 1, 1)
+position = Vector2(-480, 67)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_l6ulo")
 
-[node name="Collectible2" parent="." instance=ExtResource("19_vv1lo")]
-position = Vector2(-519, 74)
-item = SubResource("Resource_02yfb")
+[node name="PointLight2D" type="PointLight2D" parent="GPUParticles2D"]
+position = Vector2(-3, -6)
+color = Color(1, 0.717647, 0.278431, 1)
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_li8tt")
+texture_scale = 0.7
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nu2ey")
+
+[node name="Collectible" parent="." instance=ExtResource("19_3hf82")]
+position = Vector2(-363, 133)
+item = SubResource("Resource_y31q5")
 
 [editable path="model_player"]
 [editable path="model_player/weapon"]
 [editable path="CanvasLayer/main_hud"]
 [editable path="CanvasLayer/main_hud/inv_ui"]
-[editable path="Collectible2"]

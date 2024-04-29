@@ -20,6 +20,7 @@ func _ready() -> void:
 	noise.seed = randi()
 	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
 	Global.player = self
+	Dialogic.signal_event.connect(dialogsignal)
 func _process(delta):
 	#print(stun_time.is_stopped())
 	if not freeze_movement:
@@ -35,10 +36,10 @@ func _process(delta):
 		else:
 			$AnimatedSprite2D.play("idle")
 		move_and_slide()
-	if get_global_mouse_position().x < global_position.x:
-		$AnimatedSprite2D.scale.x = -1
-	else:
-		$AnimatedSprite2D.scale.x = 1
+		if get_global_mouse_position().x < global_position.x:
+			$AnimatedSprite2D.scale.x = -1
+		else:
+			$AnimatedSprite2D.scale.x = 1
 	Global.health = $health_component.health
 	if isShake:
 		$Camera2D.offset = Vector2(noise.get_noise_2d(noise.seed, noise_y) * amount * 2, noise.get_noise_2d(noise.seed, noise_y) * amount)
@@ -62,3 +63,15 @@ func collect(item:InvItem):
 	inv.insert(item)
 	if item.is_weapon:
 		$weapon.add_weapon(item.weapon)
+
+func cutscene(scene:String):
+	var dialog = Dialogic.start(scene)
+	freeze_movement = true
+	Global.UI.get_node("AnimationPlayer").play('cut_scene')
+
+func dialogsignal(namesignal):
+	print(namesignal)
+	if namesignal == "exited":
+		freeze_movement = false
+		Global.UI.get_node("AnimationPlayer").play('cut_scene_finished')
+		

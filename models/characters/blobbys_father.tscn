@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bueaek56gqcq7"]
+
+[ext_resource type="Script" path="res://scripts/characters/BlobbysFather.gd" id="1_a4gfx"]
+[ext_resource type="Texture2D" uid="uid://2wammidb5koe" path="res://sprites/blobbys_father/blobbys_father.png" id="2_7fyag"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3xyf"]
+atlas = ExtResource("2_7fyag")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pupjw"]
+atlas = ExtResource("2_7fyag")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sqpa3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3xyf")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pupjw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h28j5"]
+size = Vector2(30, 18)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_spvq4"]
+radius = 29.0
+
+[node name="BlobbysFather" type="CharacterBody2D"]
+script = ExtResource("1_a4gfx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sqpa3")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_h28j5")
+
+[node name="DialogArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogArea"]
+shape = SubResource("CircleShape2D_spvq4")
+
+[connection signal="body_entered" from="DialogArea" to="." method="_on_dialog_area_body_entered"]

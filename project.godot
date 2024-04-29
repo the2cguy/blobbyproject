@@ -24,11 +24,35 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"blobby": "res://dialogs/blobby.dch"
+"blobby": "res://dialogs/blobby.dch",
+"blobbysfather": "res://dialogs/blobbysfather.dch"
 }
 directories/dtl_directory={
 "level1_001_blobbyfather": "res://dialogs/level1_001_blobbyfather.dtl"
 }
+text/letter_speed=0.03
+text/initial_text_reveal_skippable=false
+text/text_reveal_skip_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+choices/autofocus_first=false
+choices/delay=0.2
+choices/reveal_delay=0.5
+choices/reveal_by_input=false
+animations/join_default_length=0.5
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/join_default_wait=true
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+text/autopauses={}
+layout/style_list=["res://dialogs/bubble.tres", "res://dialogs/New_File.tres", "res://dialogs/subtitle_like.tres"]
+layout/default_style="res://dialogs/subtitle_like.tres"
+variables={}
+glossary/default_case_sensitive=true
+choices/hotkey_behaviour=1
+text/autoadvance_fixed_delay=1.0
+text/autoadvance_enabled=true
 
 [display]
 
@@ -119,4 +143,5 @@ dialogic_default_action={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+viewport/hdr_2d=true
 2d/snap/snap_2d_vertices_to_pixel=true

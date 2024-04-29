@@ -73,8 +73,8 @@ offset_bottom = -60.0
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 material = SubResource("ShaderMaterial_5prxn")
 layout_mode = 0
-offset_right = 70.0
-offset_bottom = 31.0
+offset_right = 104.0
+offset_bottom = 28.0
 scale = Vector2(2, 2)
 texture = ExtResource("1_30ll5")
 patch_margin_left = 21
@@ -96,10 +96,10 @@ vertical_alignment = 1
 [node name="Label2" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 50.0
-offset_top = 22.0
-offset_right = 3866.0
-offset_bottom = 1197.0
+offset_left = 76.0
+offset_top = 21.0
+offset_right = 3892.0
+offset_bottom = 1196.0
 scale = Vector2(0.0185711, 0.0185711)
 text = "pick up"
 label_settings = SubResource("LabelSettings_i45hc")

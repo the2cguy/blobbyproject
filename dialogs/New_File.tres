@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=5 format=3 uid="uid://dgekm2quogasi"]
+
+[ext_resource type="Resource" uid="uid://byurt1ewxq7v6" path="res://dialogs/subtitle_like.tres" id="1_t1802"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_liqbd"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_b23n8"]
+
+[sub_resource type="Resource" id="Resource_6s7uh"]
+script = ExtResource("2_liqbd")
+overrides = {}
+
+[resource]
+script = ExtResource("10_b23n8")
+name = "New_File 2"
+inherits = ExtResource("1_t1802")
+base_overrides = {}
+layers = Array[ExtResource("2_liqbd")]([SubResource("Resource_6s7uh")])
+metadata/_latest_layer = -1

@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=8 format=3 uid="uid://c3m05eh5pvfvk"]
+
+[ext_resource type="PackedScene" uid="uid://syki6k0e6aac" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_TextBubble/text_bubble_base.tscn" id="1_0lb11"]
+[ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="2_v6yil"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="3_lgurc"]
+[ext_resource type="PackedScene" uid="uid://d2it0xiap3gnt" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Textbubble/text_bubble_layer.tscn" id="4_5fvhc"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="5_e7uvd"]
+
+[sub_resource type="Resource" id="Resource_w04c5"]
+script = ExtResource("3_lgurc")
+scene = ExtResource("2_v6yil")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_e5die"]
+script = ExtResource("3_lgurc")
+scene = ExtResource("4_5fvhc")
+overrides = {
+"box_modulate": "Color(0.12549, 0.12549, 0.12549, 1)",
+"choices_layout_alignment": "0",
+"choices_text_color": "Color(0.682353, 0.741176, 1, 1)",
+"choices_text_color_focus": "Color(1, 0.188235, 0.054902, 1)",
+"choices_text_color_hover": "Color(1, 0.415686, 0.129412, 1)",
+"choices_text_font": "\"superstar_memesbruh03.ttf\"",
+"name_label_box_modulate": "Color(0.105882, 0.105882, 0.105882, 1)",
+"name_label_box_modulate_use_character_color": "true",
+"name_label_color": "Color(1, 1, 1, 1)",
+"name_label_font": "\"res://ui/fonts/superstar_memesbruh03.ttf\"",
+"name_label_font_size": "16.0",
+"name_label_padding": "Vector2(5, 5)",
+"name_label_use_character_color": "false",
+"normal_font": "\"res://ui/fonts/superstar_memesbruh03.ttf\"",
+"text_color": "Color(0.984314, 0.984314, 0.984314, 1)",
+"text_size": "18.0"
+}
+
+[resource]
+script = ExtResource("5_e7uvd")
+name = "bubble"
+base_scene = ExtResource("1_0lb11")
+base_overrides = {}
+layers = Array[ExtResource("3_lgurc")]([SubResource("Resource_w04c5"), SubResource("Resource_e5die")])
+metadata/_latest_layer = 1

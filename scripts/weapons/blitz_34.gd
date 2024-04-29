@@ -26,6 +26,8 @@ func shoot():
 		get_tree().root.get_child(0).add_child(newbullet)
 		rof_timer.start(1/float(rof))
 		ammo -= 1
+		Global.UI.get_node("AmmoBar").max_ammo = max_capacity
+		Global.UI.get_node("AmmoBar").update_ammo(ammo)
 
 func _process(delta: float) -> void:
 	if current_weapon:
@@ -35,7 +37,8 @@ func _process(delta: float) -> void:
 		else:
 			$rotate_weapon/AnimatedSprite2D.flip_v = false
 		reload_bar.get_node("reload_progress").value = reload_timer.time_left
-		Global.UI.get_node("ammo_text").text = str(ammo)
+		Glob
+		
 	
 func start_reload():
 	if reload_timer.is_stopped():

@@ -20,9 +20,10 @@ func load_weapons():
 			#i.item.weapon.ammo
 
 func get_current_weapon():
-	if weapons_node.get_children():
+	if weapons_node.get_children() and weaponID != -2:
 		return weapons_node.get_children()[weaponID]
-
+	else:
+		return null
 func add_weapon(weapon):
 	var k = weapon.instantiate()
 	k.hide()
@@ -39,15 +40,6 @@ func set_weapon(id):
 		weapons_node.get_children()[weaponID].show()
 		weapons_node.get_children()[weaponID].current_weapon = true
 		weapon_type = weapons_node.get_children()[weaponID].weapon_type
-	else:
-		# If the selected slot of the UI is not a weapon then do the code below
-		last_weaponID = weaponID
-		weapons_node.get_children()[weaponID].hide()
-		weapons_node.get_children()[weaponID].current_weapon = false
-		Global.UI.get_node("ammo_text").text = "-"
-		weapon_type = "NONE"
-		weaponID = -2
-			
 func set_weapon_name(name:String):
 	for i in len(weapons_node.get_children()):
 		if weapons_node.get_children()[i].name == name:

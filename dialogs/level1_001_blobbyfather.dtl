@@ -1,0 +1,13 @@
+blobby: What happened to you dad?!
+blobby: Dad??
+blobbysfather: Can.. you.. just get.. my box right there?
+- Give him the box
+	blobby: Here's the box dad. What are you going to do dad?
+	[signal arg="givebox"]
+- Call the ambulance
+	blobby: I will call the ambulance, stay here.
+	[signal arg="callambulance"]
+- Grab the emergency kit at home
+	blobby: I will get the emergency kit at home, just stay here.
+	[signal arg="emergencykit"]
+[signal arg="exited"]

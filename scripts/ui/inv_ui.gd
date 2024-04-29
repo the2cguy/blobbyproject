@@ -12,6 +12,13 @@ func _ready():
 func update_slots():
 	for i in range(min(inv.slots.size(), slots.size())):
 		slots[i].update(inv.slots[i])
+	if inv.slots[current_slot_id].item:
+			if inv.slots[current_slot_id].item.is_weapon:
+				Global.player.get_node("weapon").set_weapon_name(inv.slots[current_slot_id].item.name)
+			else:
+				Global.player.get_node("weapon").set_weapon(-2)
+	else:
+		Global.player.get_node("weapon").set_weapon(-2)
 func select_slot(id:int):
 	if not slots[id].is_hover:
 		slots[id].select()

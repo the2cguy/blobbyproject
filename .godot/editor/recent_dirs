@@ -1,4 +1,10 @@
+res://scripts/ui
 res://dialogs
+res://ui/fonts
+res://models/characters
+res://scripts/characters
+res://sprites/blobbys_father
+res://resources/weapon_collectible
 res://models/weapons
 res://scripts/weapons
 res://sprites/weapons/zk2_gen3
@@ -13,7 +19,4 @@ res://scripts/enemy_ai
 res://sprites/shadows
 res://ui
 res://
-res://scripts/ui
 res://inventory/
-res://scripts/inventory/collectibles
-res://inventory/collectibles
