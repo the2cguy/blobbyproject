@@ -1,30 +1,31 @@
-[gd_scene load_steps=13 format=3 uid="uid://d25or1vcbdalh"]
+[gd_scene load_steps=14 format=3 uid="uid://d25or1vcbdalh"]
 
 [ext_resource type="Script" path="res://scripts/model_player.gd" id="1_5mk0y"]
-[ext_resource type="Texture2D" uid="uid://b8qn2j4mqh81e" path="res://sprites/blobby-v3.png" id="2_m1h4o"]
 [ext_resource type="Resource" uid="uid://rwvlteer80fo" path="res://inventory/player_inventory.tres" id="3_g37i1"]
 [ext_resource type="PackedScene" uid="uid://cew0rw5er5lwe" path="res://models/weapon.tscn" id="4_41w43"]
 [ext_resource type="Script" path="res://scripts/inventory_component.gd" id="4_ryw4s"]
 [ext_resource type="Resource" uid="uid://cyina1yvxjbji" path="res://inventory/player_data.tres" id="4_xuego"]
+[ext_resource type="Texture2D" uid="uid://pff6fqb7hacq" path="res://sprites/blobby-v4.png" id="5_wumbd"]
 [ext_resource type="PackedScene" uid="uid://dmm6ogo1u2fpq" path="res://models/components/health_component.tscn" id="7_acm42"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_378bd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_77mgw"]
-atlas = ExtResource("2_m1h4o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwyt4"]
+atlas = ExtResource("5_wumbd")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cebx2"]
-atlas = ExtResource("2_m1h4o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxukw"]
+atlas = ExtResource("5_wumbd")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gnny8"]
-atlas = ExtResource("2_m1h4o")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_l03vy"]
+atlas = ExtResource("5_wumbd")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pud7h"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_77mgw")
+"texture": SubResource("AtlasTexture_fwyt4")
 }],
 "loop": true,
 "name": &"idle",
@@ -32,10 +33,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cebx2")
+"texture": SubResource("AtlasTexture_dxukw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gnny8")
+"texture": SubResource("AtlasTexture_l03vy")
 }],
 "loop": true,
 "name": &"walk",
@@ -48,7 +49,7 @@ size = Vector2(26, 15)
 [node name="model_player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
 script = ExtResource("1_5mk0y")
-speed = 200.0
+speed = 105.0
 
 [node name="weapon" parent="." instance=ExtResource("4_41w43")]
 z_index = 21
@@ -73,9 +74,9 @@ script = ExtResource("4_ryw4s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3.5, 3.5)
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("8_378bd")
 
 [connection signal="damageIncoming" from="health_component" to="." method="_on_health_component_damage_incoming"]
 

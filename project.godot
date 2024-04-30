@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BlobbyProject"
-config/version="0.3.0-testing"
+config/version="0.4.0-testing"
 run/main_scene="res://maps/chapter_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
@@ -56,17 +56,20 @@ text/autoadvance_enabled=true
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [editor]
 
+movie_writer/movie_file="/home/corneliuschristian/Documents/blobbyproject/test.avi"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [input]
 

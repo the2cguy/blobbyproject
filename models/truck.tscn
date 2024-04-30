@@ -1,26 +1,84 @@
-[gd_scene load_steps=4 format=3 uid="uid://vo2fyqnekglt"]
+[gd_scene load_steps=7 format=3 uid="uid://vo2fyqnekglt"]
 
-[ext_resource type="Script" path="res://models/truck.gd" id="1_k3as4"]
-[ext_resource type="Texture2D" uid="uid://cddndbx6x84t8" path="res://icon.svg" id="1_vmrl0"]
+[ext_resource type="Script" path="res://scripts/truck.gd" id="1_8uxpg"]
+[ext_resource type="Texture2D" uid="uid://1jnm8l84voen" path="res://sprites/truck.png" id="2_hb2u1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fos7i"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhidr"]
+size = Vector2(94, 46)
 
-[node name="truck" type="CharacterBody2D"]
-script = ExtResource("1_k3as4")
+[sub_resource type="Animation" id="Animation_bhy6q"]
+resource_name = "a"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(40, -0.25, 0, 0.25, 0, 40, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Truck:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-31, -0.25, 0, 0.25, 0, -38.37, -0.25, 0, 0.25, 0, -31, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.6)
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[sub_resource type="Animation" id="Animation_ycuh3"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(40, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Truck:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-31, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
-[node name="Icon" type="Sprite2D" parent="."]
-z_index = 5
-position = Vector2(-2, 0)
-scale = Vector2(1.5, 0.75)
-texture = ExtResource("1_vmrl0")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qk0lk"]
+_data = {
+"RESET": SubResource("Animation_ycuh3"),
+"a": SubResource("Animation_bhy6q")
+}
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Truck" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_8uxpg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 65)
-shape = SubResource("RectangleShape2D_fos7i")
+[node name="Truck" type="Sprite2D" parent="."]
+position = Vector2(40, -31)
+texture = ExtResource("2_hb2u1")
 
-[node name="blobby_seat" type="Marker2D" parent="."]
-position = Vector2(-56, -23)
+[node name="TruckDetect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TruckDetect"]
+position = Vector2(10, 5)
+shape = SubResource("RectangleShape2D_mhidr")
+
+[node name="AnimationTree" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qk0lk")
+}
+
+[connection signal="area_entered" from="TruckDetect" to="." method="_on_truck_detect_area_entered"]
